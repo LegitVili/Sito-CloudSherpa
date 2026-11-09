@@ -1,0 +1,165 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import CtaBand from '../components/CtaBand.astro';
+import Steps from '../components/Steps.astro';
+import { cta } from '../data/site';
+
+const crumbs = [{ label: 'Come operiamo', href: '/come-operiamo/' }];
+const starter = [
+  'Analisi dei processi attuali di gestione delle richieste',
+  'Attivazione di Zendesk sui canali principali: email, chatbot con agenti AI, Help Center di base',
+  'Prime automazioni: macro, viste, trigger e flussi',
+  'Sessioni di formazione dedicate al team',
+  'Supporto operativo dopo il go-live',
+];
+const objections = [
+  {
+    q: '“Abbiamo già un sistema in uso.”',
+    a: 'Partiamo da lì. L’analisi serve a capire che cosa funziona e che cosa no; se conviene migrare, portiamo in Zendesk ticket, utenti e contenuti.',
+  },
+  {
+    q: '“Il team è abituato a lavorare in un certo modo.”',
+    a: 'Per questo la formazione è una fase del progetto e non un extra. Si lavora sul vostro ambiente, con i vostri casi, e vi affianchiamo nelle prime settimane.',
+  },
+  {
+    q: '“Non è una priorità adesso.”',
+    a: 'Si può partire in piccolo: i canali principali e le prime automazioni. I primi benefici arrivano in 2–4 settimane, senza un progetto lungo alle spalle.',
+  },
+];
+---
+
+<Base
+  title="Come operiamo: il metodo CloudSherpa in 4 fasi"
+  description="Analisi, configurazione, formazione e supporto post go-live: il metodo con cui CloudSherpa implementa Zendesk. Primi benefici in 2–4 settimane."
+  breadcrumbs={crumbs}
+>
+  <PageHero
+    eyebrow="Come operiamo"
+    title="Quattro tappe, dal campo base alla vetta"
+    lead="Uno sherpa conosce la montagna, prepara il percorso e porta il peso insieme a chi sale. Lavoriamo allo stesso modo: partiamo da come lavorate oggi, costruiamo il sistema con voi e restiamo finché il team non procede da solo."
+    breadcrumbs={crumbs}
+  />
+
+  <section class="section contours">
+    <div class="wrap">
+      <Steps detailed />
+    </div>
+  </section>
+
+  <section class="section section--snow">
+    <div class="wrap split">
+      <div data-reveal>
+        <p class="eyebrow">La fase iniziale</p>
+        <h2>Che cosa riceve chi parte con noi</h2>
+        <p class="lead">
+          La prima fase è pensata per essere rapida: un sistema funzionante in tempi brevi, senza complessità inutili,
+          con un team autonomo il prima possibile.
+        </p>
+        <a class="btn btn--primary" href={cta.primary.href}>{cta.primary.label}</a>
+      </div>
+      <ul class="checks big" data-reveal>
+        {starter.map((s) => <li>{s}</li>)}
+      </ul>
+    </div>
+  </section>
+
+  <section class="timing">
+    <div class="wrap timing-inner">
+      <div>
+        <p class="figure">2–4 <span>settimane</span></p>
+        <p>Primi benefici: richieste centralizzate, prime automazioni attive.</p>
+      </div>
+      <div>
+        <p class="figure">2–3 <span>mesi</span></p>
+        <p>Ottimizzazione completa: tutti i canali, integrazioni e reportistica.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head" data-reveal>
+        <p class="eyebrow">Integrazione e sviluppo</p>
+        <h2>Quando lo standard non basta</h2>
+        <p class="lead">
+          Colleghiamo Zendesk ai gestionali dei clienti usando le app del Marketplace oppure codice proprietario,
+          scritto dal nostro team di sviluppo.
+        </p>
+        <a href="/servizi/integrazioni/">Scopri le integrazioni →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--snow">
+    <div class="wrap">
+      <div class="section-head" data-reveal>
+        <p class="eyebrow">Dubbi legittimi</p>
+        <h2>Le obiezioni che sentiamo più spesso</h2>
+      </div>
+      <div class="grid grid--3">
+        {
+          objections.map((o) => (
+            <article class="card" data-reveal>
+              <h3>{o.q}</h3>
+              <p>{o.a}</p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <CtaBand />
+</Base>
+
+<style>
+  .split {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 2rem 4rem;
+    align-items: center;
+  }
+  .split .lead {
+    margin-bottom: 1.8rem;
+  }
+  .big {
+    font-size: var(--step-1);
+    line-height: 1.4;
+    gap: 1.1rem;
+  }
+  .timing {
+    background: var(--slate);
+    color: #dbe5ea;
+  }
+  .timing-inner {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    padding-block: clamp(2.5rem, 2rem + 2vw, 4rem);
+  }
+  .timing p {
+    margin: 0;
+    max-width: 24rem;
+  }
+  .figure {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: var(--step-4);
+    line-height: 1;
+    color: #fff;
+    letter-spacing: -0.03em;
+    margin-bottom: 0.5rem !important;
+  }
+  .figure span {
+    font-size: 0.38em;
+    letter-spacing: 0;
+    font-weight: 600;
+  }
+  @media (max-width: 56rem) {
+    .split,
+    .timing-inner {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

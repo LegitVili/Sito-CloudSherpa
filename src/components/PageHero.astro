@@ -1,0 +1,77 @@
+---
+interface Props {
+  eyebrow?: string;
+  title: string;
+  lead?: string;
+  breadcrumbs?: { label: string; href: string }[];
+}
+const { eyebrow, title, lead, breadcrumbs = [] } = Astro.props;
+---
+
+<section class="page-hero contours">
+  <div class="wrap">
+    {
+      breadcrumbs.length > 0 && (
+        <nav class="crumbs" aria-label="Percorso">
+          <ol>
+            <li>
+              <a href="/">Home</a>
+            </li>
+            {breadcrumbs.map((b, i) => (
+              <li>
+                {i === breadcrumbs.length - 1 ? <span aria-current="page">{b.label}</span> : <a href={b.href}>{b.label}</a>}
+              </li>
+            ))}
+          </ol>
+        </nav>
+      )
+    }
+    {eyebrow && <p class="eyebrow">{eyebrow}</p>}
+    <h1>{title}</h1>
+    {lead && <p class="lead">{lead}</p>}
+    <slot />
+  </div>
+</section>
+
+<style>
+  .page-hero {
+    padding-block: clamp(2.5rem, 2rem + 3vw, 4.5rem) clamp(3rem, 2rem + 4vw, 5.5rem);
+    border-bottom: 1px solid var(--line);
+  }
+  h1 {
+    font-size: var(--step-3);
+    font-size: clamp(2.1rem, 1.6rem + 2.4vw, 3.5rem);
+    max-width: 20em;
+  }
+  .lead {
+    margin-bottom: 0;
+  }
+  .crumbs {
+    margin-bottom: 2rem;
+    font-size: var(--step--1);
+  }
+  .crumbs ol {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin: 0;
+    padding: 0;
+    color: var(--text-soft);
+  }
+  .crumbs li + li::before {
+    content: '/';
+    margin-right: 0.4rem;
+    color: var(--mist);
+  }
+  .crumbs a {
+    color: var(--text-soft);
+    text-decoration: none;
+  }
+  .crumbs a:hover {
+    color: var(--red);
+  }
+  :global(.page-hero .btn-row) {
+    margin-top: 2rem;
+  }
+</style>

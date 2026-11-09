@@ -1,0 +1,125 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import CtaBand from '../../components/CtaBand.astro';
+
+const crumbs = [
+  { label: 'Casi studio', href: '/casi-studio/' },
+  { label: 'Lottomatica Group', href: '/casi-studio/lottomatica/' },
+];
+const actions = [
+  { t: 'Omnicanale e multi-brand', d: 'Tutti i canali e i marchi del gruppo gestiti da un unico ambiente Zendesk.' },
+  { t: 'Flussi su tre livelli', d: 'Primo, secondo e terzo livello di supporto, con regole chiare per il passaggio dei ticket.' },
+  { t: 'Automazioni', d: 'Trigger e flussi per instradare e aggiornare le richieste senza intervento manuale.' },
+  { t: 'Dashboard di controllo', d: 'Monitoraggio e reportistica avanzata su volumi, tempi e performance.' },
+  { t: 'Integrazioni e sviluppo custom', d: 'Collegamento con i sistemi aziendali e funzionalità sviluppate su misura.' },
+];
+const results = [
+  'Riduzione dei tempi medi di gestione delle richieste',
+  'Meno passaggi tra sistemi diversi, quindi maggiore efficienza operativa',
+  'Visibilità completa su processi e performance',
+  'Migliore allocazione delle risorse',
+];
+---
+
+<Base
+  title="Caso studio Lottomatica Group: Zendesk omnicanale e multi-brand"
+  description="Come CloudSherpa ha implementato Zendesk per Lottomatica Group: gestione omnicanale e multi-brand, flussi su tre livelli di supporto, dashboard e integrazioni."
+  breadcrumbs={crumbs}
+>
+  <PageHero
+    eyebrow="Caso studio · Betting e gaming"
+    title="Lottomatica Group: da canali frammentati a un unico ambiente multi-brand"
+    lead="Un’implementazione Zendesk omnicanale, con flussi strutturati su più livelli di supporto e visibilità completa sulle performance."
+    breadcrumbs={crumbs}
+  />
+
+  <section class="section">
+    <div class="wrap split">
+      <div data-reveal>
+        <p class="eyebrow">La situazione iniziale</p>
+        <h2>Più sistemi, poca visibilità</h2>
+      </div>
+      <div class="prose" data-reveal>
+        <p>
+          La gestione delle richieste dei clienti era distribuita su più sistemi e canali non integrati tra loro.
+          Mancava una visione d’insieme sui flussi operativi, era difficile monitorare le performance e i processi di
+          gestione dei ticket erano poco strutturati, soprattutto nel passaggio tra i diversi livelli di supporto.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--snow">
+    <div class="wrap">
+      <div class="section-head" data-reveal>
+        <p class="eyebrow">L’intervento</p>
+        <h2>Che cosa abbiamo implementato</h2>
+      </div>
+      <div class="grid grid--3">
+        {
+          actions.map((a, i) => (
+            <article class="card" data-reveal>
+              <p class="num">{String(i + 1).padStart(2, '0')}</p>
+              <h3>{a.t}</h3>
+              <p>{a.d}</p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--dark">
+    <div class="wrap split">
+      <div data-reveal>
+        <p class="eyebrow">I risultati</p>
+        <h2>Che cosa è cambiato</h2>
+      </div>
+      <ul class="checks big" data-reveal>
+        {results.map((r) => <li>{r}</li>)}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="wrap-narrow" data-reveal>
+      <p>
+        Lavorate nel betting o nel gaming? Vedete
+        <a href="/soluzioni/betting-gaming/">come affrontiamo il customer service nel vostro settore</a>.
+      </p>
+    </div>
+  </section>
+
+  <CtaBand title="Volete un risultato simile?" />
+</Base>
+
+<style>
+  .split {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 2rem 4rem;
+    align-items: start;
+  }
+  .prose p {
+    font-size: var(--step-1);
+    line-height: 1.5;
+  }
+  .num {
+    font-family: var(--font-display);
+    font-weight: 700;
+    color: var(--mist);
+    font-size: var(--step-1);
+    margin-bottom: 0.6rem !important;
+  }
+  .big {
+    font-size: var(--step-1);
+    line-height: 1.4;
+    gap: 1.1rem;
+  }
+  @media (max-width: 56rem) {
+    .split {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

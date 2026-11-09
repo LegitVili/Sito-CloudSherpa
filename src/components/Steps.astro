@@ -1,0 +1,136 @@
+---
+import { phases } from '../data/site';
+interface Props {
+  detailed?: boolean;
+}
+const { detailed = false } = Astro.props;
+---
+
+<ol class="steps" class:list={{ detailed }}>
+  {
+    phases.map((p, i) => (
+      <li data-reveal style={`--i:${i}`}>
+        <div class="marker">
+          <span class="dot" />
+          <span class="camp">{p.camp}</span>
+        </div>
+        <div class="body">
+          <p class="n">{p.n}</p>
+          <h3>{p.title}</h3>
+          <p>{p.text}</p>
+          {detailed && (
+            <p class="out">
+              <strong>Che cosa ottenete:</strong> {p.output}
+            </p>
+          )}
+        </div>
+      </li>
+    ))
+  }
+</ol>
+
+<style>
+  .steps {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    position: relative;
+  }
+  /* ogni fase è un campo più in alto del precedente */
+  li {
+    position: relative;
+    padding-top: calc((3 - var(--i)) * 2.4rem);
+    transition-delay: calc(var(--i) * 90ms) !important;
+  }
+  .marker {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    margin-bottom: 1rem;
+  }
+  .dot {
+    width: 0.9rem;
+    height: 0.9rem;
+    border-radius: 50%;
+    background: var(--snow);
+    border: 3px solid var(--slate);
+    flex: none;
+  }
+  li:last-child .dot {
+    background: var(--red);
+    border-color: var(--red);
+    box-shadow: 0 0 0 5px rgb(178 16 43 / 16%);
+  }
+  .camp {
+    font-size: var(--step--1);
+    font-weight: 650;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--slate);
+  }
+  .marker::after {
+    content: '';
+    flex: 1;
+    height: 2px;
+    background: repeating-linear-gradient(90deg, var(--mist) 0 6px, transparent 6px 12px);
+  }
+  li:last-child .marker::after {
+    display: none;
+  }
+  .body {
+    background: var(--snow);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 1.4rem;
+    height: calc(100% - 2.4rem);
+  }
+  .n {
+    font-family: var(--font-display);
+    font-weight: 700;
+    color: var(--mist);
+    font-size: var(--step-2);
+    line-height: 1;
+    margin-bottom: 0.4rem;
+  }
+  h3 {
+    margin-bottom: 0.4rem;
+  }
+  .body p:not(.n) {
+    color: var(--text-soft);
+    font-size: 0.98rem;
+    margin-bottom: 0;
+  }
+  .out {
+    margin-top: 0.9rem !important;
+    padding-top: 0.9rem;
+    border-top: 1px solid var(--line);
+  }
+  @media (max-width: 62rem) {
+    .steps {
+      grid-template-columns: 1fr;
+      gap: 0;
+      padding-left: 0.4rem;
+    }
+    li {
+      padding-top: 0;
+      padding-left: 2rem;
+      padding-bottom: 1.5rem;
+      border-left: 2px dashed var(--mist);
+    }
+    li:last-child {
+      border-left-color: transparent;
+    }
+    .marker {
+      margin-left: calc(-2rem - 0.5rem);
+    }
+    .marker::after {
+      display: none;
+    }
+    .body {
+      height: auto;
+    }
+  }
+</style>

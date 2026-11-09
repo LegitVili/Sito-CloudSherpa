@@ -1,0 +1,22 @@
+---
+import Simple from '../components/Simple.astro';
+import { site } from '../data/site';
+---
+
+<Simple
+  title="Informativa sulla privacy"
+  description="Informativa sul trattamento dei dati personali del sito CloudSherpa."
+  heading="Informativa sulla privacy"
+>
+  <p>
+    Il testo completo e aggiornato dell’informativa sul trattamento dei dati personali è disponibile a questo
+    indirizzo:
+  </p>
+  <p><a class="btn btn--ghost" href={site.privacyPolicyUrl} rel="noopener">Leggi l’informativa completa</a></p>
+  <h2>Dati raccolti tramite i form</h2>
+  <p>
+    I dati inseriti nei form di contatto e di richiesta dell’audit (nome, azienda, email, telefono e contenuto del
+    messaggio) sono utilizzati esclusivamente per rispondere alla richiesta.
+  </p>
+  <p>Per qualsiasi domanda sul trattamento dei dati potete scriverci dalla pagina <a href="/contatti/">Contatti</a>.</p>
+</Simple>

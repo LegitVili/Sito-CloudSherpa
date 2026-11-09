@@ -1,0 +1,172 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import Faq from '../../components/Faq.astro';
+import { solutions, type Solution } from '../../data/solutions';
+import { cta } from '../../data/site';
+
+export function getStaticPaths() {
+  return solutions.map((solution) => ({ params: { slug: solution.slug }, props: { solution } }));
+}
+const { solution: s } = Astro.props as { solution: Solution };
+const crumbs = [
+  { label: 'Soluzioni', href: '/soluzioni/' },
+  { label: s.nav, href: `/soluzioni/${s.slug}/` },
+];
+const schema = [
+  {
+    '@type': 'FAQPage',
+    mainEntity: s.faq.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  },
+];
+---
+
+<Base title={s.metaTitle} description={s.metaDescription} breadcrumbs={crumbs} schema={schema}>
+  <PageHero eyebrow={`Soluzioni · ${s.nav}`} title={s.h1} lead={s.intro} breadcrumbs={crumbs}>
+    <ul class="requests" aria-label="Richieste tipiche">
+      {s.requests.map((r) => <li class="tag">{r}</li>)}
+    </ul>
+    <div class="btn-row">
+      <a class="btn btn--primary" href={cta.primary.href}>{cta.primary.label}</a>
+      <a class="btn btn--ghost" href={cta.secondary.href}>{cta.secondary.label}</a>
+    </div>
+  </PageHero>
+
+  <section class="section">
+    <div class="wrap split">
+      <div data-reveal>
+        <p class="eyebrow">Le difficoltà del settore</p>
+        <h2>Che cosa rende difficile il customer service</h2>
+        <p class="who">
+          <strong>Per chi è pensata:</strong>
+          {s.who.join(', ').toLowerCase()}.
+        </p>
+      </div>
+      <ul class="problems" data-reveal>
+        {s.pains.map((p) => <li>{p}</li>)}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section section--snow">
+    <div class="wrap">
+      <div class="section-head" data-reveal>
+        <p class="eyebrow">Che cosa mettiamo in campo</p>
+        <h2>La configurazione da cui partiamo</h2>
+      </div>
+      <div class="grid grid--3">
+        {
+          s.setup.map((d) => (
+            <article class="card card--link" data-reveal>
+              <h3>
+                <a href={d.href}>{d.title}</a>
+              </h3>
+              <p>{d.text}</p>
+              <span class="more" aria-hidden="true">
+                Approfondisci →
+              </span>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--dark">
+    <div class="wrap-narrow promise" data-reveal>
+      <p class="eyebrow">L’obiettivo</p>
+      <p class="quote">{s.promise}</p>
+      {
+        s.caseStudy && (
+          <a class="btn btn--light" href={s.caseStudy.href}>
+            {s.caseStudy.label}
+            <span class="arrow" aria-hidden="true">→</span>
+          </a>
+        )
+      }
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap split">
+      <div data-reveal>
+        <p class="eyebrow">Domande frequenti</p>
+        <h2>{s.nav}: le domande più comuni</h2>
+      </div>
+      <Faq items={s.faq} />
+    </div>
+  </section>
+
+  <CtaBand />
+</Base>
+
+<style>
+  .requests {
+    list-style: none;
+    padding: 0;
+    margin: 1.6rem 0 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+  }
+  .requests .tag {
+    background: var(--snow);
+    border: 1px solid var(--line);
+  }
+  .split {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 2rem 4rem;
+    align-items: start;
+  }
+  .who {
+    color: var(--text-soft);
+  }
+  .problems {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .problems li {
+    padding: 1.1rem 0 1.1rem 2.2rem;
+    border-top: 1px solid var(--line);
+    position: relative;
+    font-size: var(--step-1);
+    line-height: 1.4;
+    color: var(--ink);
+  }
+  .problems li:last-child {
+    border-bottom: 1px solid var(--line);
+  }
+  .problems li::before {
+    content: '';
+    position: absolute;
+    left: 0.2rem;
+    top: 1.7rem;
+    width: 0.9rem;
+    height: 2px;
+    background: var(--red);
+  }
+  .promise {
+    text-align: center;
+  }
+  .quote {
+    font-family: var(--font-display);
+    font-size: var(--step-3);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: #fff;
+    margin-bottom: 2rem;
+    text-wrap: balance;
+  }
+  @media (max-width: 56rem) {
+    .split {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

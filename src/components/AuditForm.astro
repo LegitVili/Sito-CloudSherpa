@@ -1,0 +1,280 @@
+---
+// Form di contatto/audit. L'indirizzo a cui inviare i dati si imposta con la variabile
+// PUBLIC_FORM_ENDPOINT (vedi .env.example): finché è vuota il form avvisa che non è collegato.
+import { site } from '../data/site';
+
+interface Props {
+  kind?: 'audit' | 'contatto';
+}
+const { kind = 'audit' } = Astro.props;
+const endpoint = import.meta.env.PUBLIC_FORM_ENDPOINT ?? '';
+const email = site.company.email;
+---
+
+<form class="form" action={endpoint || undefined} method="post" data-form data-endpoint={endpoint} novalidate>
+  <input type="hidden" name="tipo_richiesta" value={kind} data-kind />
+  <input type="hidden" name="pagina" value={Astro.url.pathname} />
+  <p class="hp" aria-hidden="true">
+    <label>Non compilare questo campo <input type="text" name="sito_web" tabindex="-1" autocomplete="off" /></label>
+  </p>
+
+  <div class="row">
+    <div class="field">
+      <label for="f-nome">Nome e cognome</label>
+      <input id="f-nome" name="nome" type="text" autocomplete="name" required />
+    </div>
+    <div class="field">
+      <label for="f-azienda">Azienda</label>
+      <input id="f-azienda" name="azienda" type="text" autocomplete="organization" required />
+    </div>
+  </div>
+  <div class="row">
+    <div class="field">
+      <label for="f-email">Email aziendale</label>
+      <input id="f-email" name="email" type="email" autocomplete="email" required />
+    </div>
+    <div class="field">
+      <label for="f-tel">Telefono <span class="opt">(facoltativo)</span></label>
+      <input id="f-tel" name="telefono" type="tel" autocomplete="tel" />
+    </div>
+  </div>
+
+  {
+    kind === 'audit' && (
+      <>
+        <fieldset class="field">
+          <legend>Da quali canali ricevete richieste?</legend>
+          <div class="checks-row">
+            {['Email', 'Telefono', 'Chat', 'WhatsApp', 'Social', 'Form sul sito'].map((c) => (
+              <label class="pill">
+                <input type="checkbox" name="canali" value={c} />
+                <span>{c}</span>
+              </label>
+            ))}
+          </div>
+        </fieldset>
+        <div class="row">
+          <div class="field">
+            <label for="f-volume">Richieste al mese</label>
+            <select id="f-volume" name="volume">
+              <option value="">Seleziona</option>
+              <option>Meno di 500</option>
+              <option>500 – 2.000</option>
+              <option>2.000 – 10.000</option>
+              <option>Più di 10.000</option>
+              <option>Non lo sappiamo</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="f-tool">Strumento attuale</label>
+            <select id="f-tool" name="strumento">
+              <option value="">Seleziona</option>
+              <option>Nessun helpdesk (email, fogli di calcolo)</option>
+              <option>Zendesk</option>
+              <option>Un altro helpdesk</option>
+              <option>Sistema interno</option>
+            </select>
+          </div>
+        </div>
+      </>
+    )
+  }
+
+  <div class="field">
+    <label for="f-msg">
+      {kind === 'audit' ? 'Che cosa vorreste migliorare?' : 'Come possiamo aiutarvi?'}
+      {kind === 'audit' && <span class="opt">(facoltativo)</span>}
+    </label>
+    <textarea id="f-msg" name="messaggio" rows="4" required={kind !== 'audit'}></textarea>
+  </div>
+
+  <label class="consent">
+    <input type="checkbox" name="privacy" required />
+    <span>
+      Ho letto l’<a href="/privacy/">informativa sulla privacy</a> e acconsento al trattamento dei dati per essere ricontattato.
+    </span>
+  </label>
+
+  <button class="btn btn--primary" type="submit">
+    {kind === 'audit' ? 'Richiedi l’audit gratuito' : 'Invia la richiesta'}
+    <span class="arrow" aria-hidden="true">→</span>
+  </button>
+
+  <p class="status" role="status" aria-live="polite" data-status data-email={email}></p>
+</form>
+
+<script>
+  document.querySelectorAll<HTMLFormElement>('[data-form]').forEach((form) => {
+    const status = form.querySelector<HTMLElement>('[data-status]')!;
+    const kind = form.querySelector<HTMLInputElement>('[data-kind]');
+    const wanted = new URLSearchParams(location.search).get('richiesta');
+    if (wanted && kind) kind.value = wanted;
+
+    const say = (text: string, tone: 'ok' | 'error') => {
+      status.textContent = text;
+      status.dataset.tone = tone;
+    };
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (!form.checkValidity()) {
+        form.querySelector<HTMLElement>(':invalid')?.focus();
+        say('Controllate i campi obbligatori e l’indirizzo email.', 'error');
+        form.classList.add('was-validated');
+        return;
+      }
+      const data = new FormData(form);
+      if (data.get('sito_web')) return; // campo trappola per i bot
+
+      const endpoint = form.dataset.endpoint;
+      const email = status.dataset.email;
+      if (!endpoint) {
+        say(
+          `Il form non è ancora collegato a un sistema di ricezione.${email ? ` Nel frattempo scriveteci a ${email}.` : ''}`,
+          'error',
+        );
+        return;
+      }
+      const button = form.querySelector<HTMLButtonElement>('button[type="submit"]')!;
+      button.disabled = true;
+      try {
+        const res = await fetch(endpoint, { method: 'POST', body: data, headers: { Accept: 'application/json' } });
+        if (!res.ok) throw new Error(String(res.status));
+        location.href = '/grazie/';
+      } catch {
+        say(`Invio non riuscito. Riprovate tra poco${email ? ` o scriveteci a ${email}` : ''}.`, 'error');
+        button.disabled = false;
+      }
+    });
+  });
+</script>
+
+<style>
+  .form {
+    display: grid;
+    gap: 1.15rem;
+  }
+  .row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.15rem;
+  }
+  .field {
+    display: grid;
+    gap: 0.4rem;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    min-width: 0;
+  }
+  label,
+  legend {
+    font-weight: 600;
+    font-size: 0.98rem;
+    color: var(--ink);
+    padding: 0;
+  }
+  legend {
+    margin-bottom: 0.5rem;
+  }
+  .opt {
+    font-weight: 400;
+    color: var(--text-soft);
+  }
+  input[type='text'],
+  input[type='email'],
+  input[type='tel'],
+  select,
+  textarea {
+    font: inherit;
+    color: var(--text);
+    width: 100%;
+    padding: 0.75rem 0.9rem;
+    border: 1.5px solid var(--mist);
+    border-radius: var(--radius-sm);
+    background: var(--snow);
+  }
+  textarea {
+    resize: vertical;
+  }
+  input:focus,
+  select:focus,
+  textarea:focus {
+    outline: 3px solid rgb(79 122 148 / 35%);
+    border-color: var(--slate);
+  }
+  .was-validated :invalid {
+    border-color: var(--red);
+  }
+  .checks-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .pill {
+    font-weight: 500;
+    cursor: pointer;
+  }
+  .pill input {
+    position: absolute;
+    opacity: 0;
+  }
+  .pill span {
+    display: block;
+    padding: 0.45rem 0.9rem;
+    border: 1.5px solid var(--mist);
+    border-radius: 999px;
+    background: var(--snow);
+    transition:
+      background-color 0.15s,
+      border-color 0.15s,
+      color 0.15s;
+  }
+  .pill input:checked + span {
+    background: var(--slate);
+    border-color: var(--slate);
+    color: #fff;
+  }
+  .pill input:focus-visible + span {
+    outline: 3px solid var(--slate-2);
+    outline-offset: 2px;
+  }
+  .consent {
+    display: flex;
+    gap: 0.7rem;
+    align-items: flex-start;
+    font-weight: 400;
+    font-size: 0.92rem;
+    color: var(--text-soft);
+  }
+  .consent input {
+    margin-top: 0.3em;
+    width: 1.1rem;
+    height: 1.1rem;
+    flex: none;
+    accent-color: var(--slate);
+  }
+  .btn {
+    justify-self: start;
+  }
+  .status {
+    margin: 0;
+    font-size: 0.95rem;
+  }
+  .status:empty {
+    display: none;
+  }
+  .status[data-tone='error'] {
+    color: var(--red-dark);
+    font-weight: 600;
+  }
+  .hp {
+    position: absolute;
+    left: -200vw;
+  }
+  @media (max-width: 36rem) {
+    .row {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

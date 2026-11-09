@@ -1,0 +1,16 @@
+---
+import Simple from '../components/Simple.astro';
+import { site } from '../data/site';
+---
+
+<Simple title="Cookie" description="Informazioni sull’uso dei cookie sul sito CloudSherpa." heading="Cookie">
+  <p>
+    Questo sito non installa cookie di profilazione. I font e gli script sono serviti direttamente dal nostro dominio,
+    senza chiamate a servizi di terze parti.
+  </p>
+  <p>
+    Se in futuro verranno attivati strumenti di analisi o di marketing che richiedono il consenso, questa pagina sarà
+    aggiornata e vi sarà chiesto di esprimere una scelta prima della loro attivazione.
+  </p>
+  <p>Per il resto vale l’<a href={site.privacyPolicyUrl} rel="noopener">informativa sulla privacy</a>.</p>
+</Simple>

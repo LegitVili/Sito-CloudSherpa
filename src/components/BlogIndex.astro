@@ -1,0 +1,113 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import PageHero from './PageHero.astro';
+import PostCard from './PostCard.astro';
+import CtaBand from './CtaBand.astro';
+
+interface Props {
+  posts: CollectionEntry<'blog'>[];
+  page: number;
+  pages: number;
+}
+const { posts, page, pages } = Astro.props;
+const url = (n: number) => (n === 1 ? '/blog/' : `/blog/pagina/${n}/`);
+const crumbs = [{ label: 'Blog', href: '/blog/' }];
+const title = page === 1 ? 'Blog: guide su Zendesk, customer service e AI' : `Blog, pagina ${page} di ${pages}`;
+---
+
+<Base
+  title={title}
+  description="Guide e approfondimenti di CloudSherpa su Zendesk, customer service, customer experience, agenti AI e help desk."
+  breadcrumbs={crumbs}
+>
+  <Fragment slot="head">
+    {page > 1 && <link rel="prev" href={url(page - 1)} />}
+    {page < pages && <link rel="next" href={url(page + 1)} />}
+  </Fragment>
+  <PageHero
+    eyebrow="Blog"
+    title="Guide e approfondimenti su Zendesk e customer service"
+    lead={page === 1 ? 'Come organizzare l’assistenza clienti, usare meglio Zendesk e introdurre l’AI senza perdere il controllo.' : `Pagina ${page} di ${pages}`}
+    breadcrumbs={crumbs}
+  />
+
+  <section class="section">
+    <div class="wrap">
+      <div class="grid grid--3">
+        {posts.map((p) => <PostCard post={p} />)}
+      </div>
+
+      <nav class="pager" aria-label="Pagine del blog">
+        {
+          page > 1 ? (
+            <a class="btn btn--ghost" href={url(page - 1)} rel="prev">
+              ← Più recenti
+            </a>
+          ) : (
+            <span />
+          )
+        }
+        <ol>
+          {
+            Array.from({ length: pages }, (_, i) => i + 1).map((n) => (
+              <li>
+                <a href={url(n)} aria-current={n === page ? 'page' : undefined}>
+                  {n}
+                </a>
+              </li>
+            ))
+          }
+        </ol>
+        {
+          page < pages ? (
+            <a class="btn btn--ghost" href={url(page + 1)} rel="next">
+              Meno recenti →
+            </a>
+          ) : (
+            <span />
+          )
+        }
+      </nav>
+    </div>
+  </section>
+
+  <CtaBand />
+</Base>
+
+<style>
+  .pager {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 3.5rem;
+  }
+  ol {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.25rem;
+    margin: 0;
+    padding: 0;
+  }
+  ol a {
+    display: grid;
+    place-items: center;
+    min-width: 2.4rem;
+    height: 2.4rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    color: var(--slate);
+  }
+  ol a:hover {
+    background: var(--fog);
+  }
+  ol a[aria-current='page'] {
+    background: var(--ink);
+    color: #fff;
+  }
+</style>

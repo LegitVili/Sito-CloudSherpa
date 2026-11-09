@@ -1,0 +1,221 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import Faq from '../../components/Faq.astro';
+import { services, type Service } from '../../data/services';
+import { solutions } from '../../data/solutions';
+import { site, cta } from '../../data/site';
+
+export function getStaticPaths() {
+  return services.map((service) => ({ params: { slug: service.slug }, props: { service } }));
+}
+const { service: s } = Astro.props as { service: Service };
+const others = services.filter((o) => o.slug !== s.slug);
+const crumbs = [
+  { label: 'Servizi', href: '/servizi/' },
+  { label: s.nav, href: `/servizi/${s.slug}/` },
+];
+const schema = [
+  {
+    '@type': 'Service',
+    name: s.title,
+    description: s.metaDescription,
+    serviceType: s.title,
+    provider: { '@id': `${site.url}/#organization` },
+    areaServed: ['IT', 'Europe'],
+    url: `${site.url}/servizi/${s.slug}/`,
+  },
+  {
+    '@type': 'FAQPage',
+    mainEntity: s.faq.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  },
+];
+---
+
+<Base title={s.metaTitle} description={s.metaDescription} breadcrumbs={crumbs} schema={schema}>
+  <PageHero eyebrow="Servizi" title={s.h1} lead={s.intro} breadcrumbs={crumbs}>
+    <div class="btn-row">
+      <a class="btn btn--primary" href={cta.primary.href}>{cta.primary.label}</a>
+      <a class="btn btn--ghost" href={cta.secondary.href}>{cta.secondary.label}</a>
+    </div>
+  </PageHero>
+
+  <section class="section">
+    <div class="wrap split">
+      <div data-reveal>
+        <p class="eyebrow">Il problema</p>
+        <h2>{s.problemTitle}</h2>
+      </div>
+      <ul class="problems" data-reveal>
+        {s.problems.map((p) => <li>{p}</li>)}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section section--snow">
+    <div class="wrap">
+      <div class="section-head" data-reveal>
+        <p class="eyebrow">Il nostro intervento</p>
+        <h2>{s.doTitle}</h2>
+      </div>
+      <div class="grid grid--3">
+        {
+          s.doItems.map((d, i) => (
+            <article class="card" data-reveal>
+              <p class="num">{String(i + 1).padStart(2, '0')}</p>
+              <h3>{d.title}</h3>
+              <p>{d.text}</p>
+            </article>
+          ))
+        }
+      </div>
+      <p class="products" data-reveal>
+        <span>Prodotti Zendesk coinvolti:</span>
+        {s.products.map((p) => <span class="tag">{p}</span>)}
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--dark">
+    <div class="wrap split">
+      <div data-reveal>
+        <p class="eyebrow">Il risultato</p>
+        <h2>Che cosa cambia per il vostro team</h2>
+        <p class="lead">I primi benefici arrivano di norma in 2–4 settimane dall’avvio del progetto.</p>
+      </div>
+      <ul class="checks big" data-reveal>
+        {s.outcomes.map((o) => <li>{o}</li>)}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap split">
+      <div data-reveal>
+        <p class="eyebrow">Domande frequenti</p>
+        <h2>{s.nav}: le domande più comuni</h2>
+      </div>
+      <Faq items={s.faq} />
+    </div>
+  </section>
+
+  <section class="section section--snow section--tight">
+    <div class="wrap">
+      <h2 class="h-small">Altri servizi</h2>
+      <div class="grid grid--2 more">
+        {
+          others.map((o) => (
+            <a class="mini" href={`/servizi/${o.slug}/`}>
+              <strong>{o.title}</strong>
+              <span>{o.short}</span>
+            </a>
+          ))
+        }
+      </div>
+      <p class="sectors">
+        Per settore:
+        {solutions.map((sol) => <a href={`/soluzioni/${sol.slug}/`}>{sol.nav}</a>)}
+      </p>
+    </div>
+  </section>
+
+  <CtaBand />
+</Base>
+
+<style>
+  .split {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 2rem 4rem;
+    align-items: start;
+  }
+  .problems {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+  }
+  .problems li {
+    padding: 1.1rem 0 1.1rem 2.2rem;
+    border-top: 1px solid var(--line);
+    position: relative;
+    font-size: var(--step-1);
+    line-height: 1.4;
+    color: var(--ink);
+  }
+  .problems li:last-child {
+    border-bottom: 1px solid var(--line);
+  }
+  .problems li::before {
+    content: '';
+    position: absolute;
+    left: 0.2rem;
+    top: 1.7rem;
+    width: 0.9rem;
+    height: 2px;
+    background: var(--red);
+  }
+  .num {
+    font-family: var(--font-display);
+    font-weight: 700;
+    color: var(--mist);
+    font-size: var(--step-1);
+    margin-bottom: 0.6rem !important;
+  }
+  .products {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 2.5rem 0 0;
+    font-size: 0.95rem;
+    color: var(--text-soft);
+  }
+  .big {
+    font-size: var(--step-1);
+    gap: 1.1rem;
+  }
+  .h-small {
+    font-size: var(--step-2);
+    margin-bottom: 1.5rem;
+  }
+  .mini {
+    display: block;
+    padding: 1.2rem 1.4rem;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    text-decoration: none;
+    color: var(--text-soft);
+    transition: border-color 0.2s;
+  }
+  .mini:hover {
+    border-color: var(--slate);
+    color: var(--text-soft);
+  }
+  .mini strong {
+    display: block;
+    font-size: var(--step-1);
+    font-family: var(--font-display);
+  }
+  .mini span {
+    font-size: 0.95rem;
+  }
+  .sectors {
+    margin: 2rem 0 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 1.2rem;
+    color: var(--text-soft);
+  }
+  @media (max-width: 56rem) {
+    .split {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

@@ -1,0 +1,60 @@
+---
+import { cta } from '../data/site';
+interface Props {
+  title?: string;
+  text?: string;
+}
+const {
+  title = 'Scoprite dove il vostro customer service perde tempo',
+  text = 'Analizziamo gratuitamente il vostro customer journey attuale: canali, tempi di risposta, richieste ripetitive. Ricevete un quadro chiaro delle priorità, senza impegno.',
+} = Astro.props;
+---
+
+<section class="band">
+  <div class="wrap inner" data-reveal>
+    <div>
+      <p class="eyebrow">Audit gratuito</p>
+      <h2>{title}</h2>
+      <p class="lead">{text}</p>
+    </div>
+    <div class="btn-row">
+      <a class="btn btn--primary" href={cta.primary.href}>
+        {cta.primary.label}
+        <span class="arrow" aria-hidden="true">→</span>
+      </a>
+      <a class="btn btn--light" href={cta.secondary.href}>{cta.secondary.label}</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .band {
+    background:
+      radial-gradient(60% 120% at 85% 0%, #24475a 0%, transparent 60%),
+      var(--ink);
+    color: #c9d6dd;
+    padding-block: clamp(3.5rem, 2.5rem + 4vw, 6rem);
+  }
+  .inner {
+    display: grid;
+    grid-template-columns: 1.5fr auto;
+    gap: 2rem 3rem;
+    align-items: center;
+  }
+  h2 {
+    color: #fff;
+    max-width: 22em;
+  }
+  .eyebrow {
+    color: #f3a9b6;
+  }
+  .lead {
+    color: #c9d6dd;
+    margin-bottom: 0;
+  }
+  @media (max-width: 56rem) {
+    .inner {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

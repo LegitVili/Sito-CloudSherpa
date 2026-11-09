@@ -1,0 +1,150 @@
+---
+import { render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import PostCard from '../../components/PostCard.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import { getPosts } from '../../data/blog';
+import { site, cta } from '../../data/site';
+
+export async function getStaticPaths() {
+  const posts = await getPosts();
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: {
+      post,
+      related: posts.filter((p) => p.id !== post.id && p.data.category === post.data.category).slice(0, 3),
+    },
+  }));
+}
+const { post, related } = Astro.props;
+const { Content } = await render(post);
+const d = post.data;
+const date = d.pubDate.toLocaleDateString('it-IT', { day: 'numeric', month: 'long', year: 'numeric' });
+const words = (post.body ?? '').split(/\s+/).length;
+const minutes = Math.max(1, Math.round(words / 220));
+const crumbs = [
+  { label: 'Blog', href: '/blog/' },
+  { label: d.title, href: `/blog/${post.id}/` },
+];
+const schema = [
+  {
+    '@type': 'BlogPosting',
+    headline: d.title,
+    description: d.description,
+    datePublished: d.pubDate.toISOString(),
+    dateModified: (d.updatedDate ?? d.pubDate).toISOString(),
+    inLanguage: 'it-IT',
+    mainEntityOfPage: `${site.url}/blog/${post.id}/`,
+    ...(d.cover && { image: `${site.url}${d.cover}` }),
+    author: { '@id': `${site.url}/#organization` },
+    publisher: { '@id': `${site.url}/#organization` },
+  },
+];
+---
+
+<Base
+  title={d.title}
+  description={d.description}
+  type="article"
+  image={d.cover}
+  breadcrumbs={crumbs}
+  schema={schema}
+  article={{ published: d.pubDate, modified: d.updatedDate }}
+>
+  <article>
+    <header class="head contours">
+      <div class="wrap-narrow">
+        <p class="back"><a href="/blog/">← Tutti gli articoli</a></p>
+        <p class="meta">
+          <span class="tag">{d.category}</span>
+          <time datetime={d.pubDate.toISOString()}>{date}</time>
+          <span>{minutes} min di lettura</span>
+        </p>
+        <h1>{d.title}</h1>
+      </div>
+    </header>
+    {
+      d.cover && (
+        <div class="wrap-narrow cover">
+          <img src={d.cover} alt="" width="1200" height="675" fetchpriority="high" />
+        </div>
+      )
+    }
+    <div class="wrap-narrow prose body">
+      <Content />
+    </div>
+    <aside class="wrap-narrow inline-cta">
+      <h2>Volete applicarlo al vostro customer service?</h2>
+      <p>Analizziamo gratuitamente come gestite oggi le richieste dei clienti e vi indichiamo le priorità.</p>
+      <a class="btn btn--primary" href={cta.primary.href}>{cta.primary.label}</a>
+    </aside>
+  </article>
+
+  {
+    related.length > 0 && (
+      <section class="section section--snow">
+        <div class="wrap">
+          <h2 class="rel">Continua a leggere</h2>
+          <div class="grid grid--3">
+            {related.map((p) => (
+              <PostCard post={p} />
+            ))}
+          </div>
+        </div>
+      </section>
+    )
+  }
+  <CtaBand />
+</Base>
+
+<style>
+  .head {
+    padding-block: clamp(2rem, 1.5rem + 3vw, 4rem) clamp(2rem, 1.5rem + 2vw, 3rem);
+  }
+  .back {
+    font-size: var(--step--1);
+    margin-bottom: 1.5rem;
+  }
+  .back a {
+    text-decoration: none;
+    color: var(--text-soft);
+  }
+  .meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem 1rem;
+    font-size: var(--step--1);
+    color: var(--text-soft);
+    margin-bottom: 1rem;
+  }
+  h1 {
+    font-size: clamp(1.9rem, 1.5rem + 2vw, 3rem);
+    line-height: 1.1;
+    margin: 0;
+  }
+  .cover img {
+    width: 100%;
+    border-radius: var(--radius);
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+  }
+  .body {
+    padding-block: clamp(2rem, 1.5rem + 2vw, 3.5rem);
+  }
+  .inline-cta {
+    background: var(--snow);
+    border: 1px solid var(--line);
+    border-left: 4px solid var(--red);
+    border-radius: var(--radius);
+    padding: clamp(1.5rem, 1rem + 2vw, 2.25rem);
+    margin-bottom: var(--section);
+  }
+  .inline-cta h2 {
+    font-size: var(--step-2);
+  }
+  .rel {
+    font-size: var(--step-2);
+    margin-bottom: 1.5rem;
+  }
+</style>

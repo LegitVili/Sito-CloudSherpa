@@ -1,0 +1,126 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import CtaBand from '../components/CtaBand.astro';
+
+const crumbs = [{ label: 'Chi siamo', href: '/chi-siamo/' }];
+const mission = [
+  {
+    t: 'Mettere il cliente al centro',
+    d: 'Affianchiamo il cliente in tutte le fasi del progetto, dall’analisi iniziale al go-live e al supporto evolutivo, costruendo soluzioni adatte alle sue esigenze operative.',
+  },
+  {
+    t: 'Creare processi più efficienti',
+    d: 'Automatizziamo le attività ripetitive, integriamo strumenti diversi e miglioriamo la comunicazione tra azienda e clienti con piattaforme omnicanale e flussi di lavoro intelligenti.',
+  },
+  {
+    t: 'Trasformare la tecnologia in valore concreto',
+    d: 'Non proponiamo semplicemente software, ma strumenti che migliorano produttività, customer experience e risultati, accompagnando le imprese nella crescita digitale in modo semplice e sostenibile.',
+  },
+];
+---
+
+<Base
+  title="Chi siamo: CloudSherpa, partner Zendesk in Italia"
+  description="CloudSherpa è una società di consulenza specializzata in customer service e Zendesk. La nostra missione: processi più efficienti e tecnologia che produce valore."
+  breadcrumbs={crumbs}
+>
+  <PageHero
+    eyebrow="Chi siamo"
+    title="Gli sherpa del vostro customer service"
+    lead="CloudSherpa è una società di consulenza specializzata in customer service. Come partner Zendesk aiutiamo le aziende a organizzare e ottimizzare l’assistenza ai clienti con la piattaforma Zendesk e con l’intelligenza artificiale."
+    breadcrumbs={crumbs}
+  />
+
+  <section class="section">
+    <div class="wrap split">
+      <div data-reveal>
+        <p class="eyebrow">Perché “sherpa”</p>
+        <h2>Chi sale conosce la meta. Noi conosciamo la strada.</h2>
+      </div>
+      <div class="prose" data-reveal>
+        <p>
+          Gli sherpa sono le guide che accompagnano le spedizioni sulle montagne più alte: conoscono il percorso,
+          preparano i campi e portano il peso insieme a chi sale.
+        </p>
+        <p>
+          Interveniamo soprattutto dove le richieste dei clienti sono distribuite su più canali e gestite in modo poco
+          strutturato. Partiamo dall’analisi dei processi esistenti e costruiamo un sistema più ordinato, in grado di
+          crescere e sostenibile nel tempo.
+        </p>
+        <p>
+          Lavoriamo con aziende da 10 a 2.000 dipendenti, in Italia e in Europa, in settori come e-commerce, retail,
+          betting e gaming, trasporti e sanità.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--snow contours">
+    <div class="wrap">
+      <div class="section-head" data-reveal>
+        <p class="eyebrow">La nostra missione</p>
+        <h2>Tre impegni che guidano ogni progetto</h2>
+      </div>
+      <div class="grid grid--3">
+        {
+          mission.map((m, i) => (
+            <article class="card" data-reveal>
+              <p class="num">{i + 1}</p>
+              <h3>{m.t}</h3>
+              <p>{m.d}</p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap split">
+      <div data-reveal>
+        <p class="eyebrow">Partner Zendesk</p>
+        <h2>Licenze, progetto e supporto da un solo interlocutore</h2>
+      </div>
+      <div class="prose" data-reveal>
+        <p>
+          Come partner Zendesk seguiamo l’intero percorso: dalla scelta del piano all’implementazione, dalle
+          integrazioni con i vostri sistemi alla formazione del team. Chi acquista con noi non riceve soltanto uno
+          strumento, ma un sistema già configurato e utilizzabile in poche settimane.
+        </p>
+        <p>
+          <a href="/servizi/">Scopri i servizi</a> oppure guarda <a href="/come-operiamo/">come lavoriamo</a>.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <CtaBand />
+</Base>
+
+<style>
+  .split {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 2rem 4rem;
+    align-items: start;
+  }
+  .prose p {
+    font-size: var(--step-1);
+    line-height: 1.55;
+    color: var(--text-soft);
+  }
+  .num {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: var(--step-3);
+    line-height: 1;
+    color: var(--red);
+    margin-bottom: 0.8rem !important;
+  }
+  @media (max-width: 56rem) {
+    .split {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

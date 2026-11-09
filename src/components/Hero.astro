@@ -1,0 +1,297 @@
+---
+import { cta } from '../data/site';
+import Icon from './Icon.astro';
+
+const channels = [
+  { label: 'Email', icon: 'mail' },
+  { label: 'WhatsApp', icon: 'channels' },
+  { label: 'Chat', icon: 'bot' },
+  { label: 'Telefono', icon: 'phone' },
+  { label: 'Social', icon: 'users' },
+];
+---
+
+<section class="hero">
+  <div class="wrap layout">
+    <div class="copy">
+      <p class="eyebrow">Partner Zendesk in Italia</p>
+      <h1>Portiamo il vostro customer service <em>in vetta</em>, con Zendesk e l’AI.</h1>
+      <p class="sub">
+        Le richieste arrivano da email, WhatsApp, chat e telefono. Le riuniamo in un unico sistema e attiviamo agenti AI
+        che rispondono alle domande ripetitive. Primi risultati in 2–4 settimane.
+      </p>
+      <div class="btn-row">
+        <a class="btn btn--primary" href={cta.primary.href}>
+          {cta.primary.label}
+          <span class="arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="btn btn--light" href={cta.secondary.href}>{cta.secondary.label}</a>
+      </div>
+      <ul class="proof">
+        <li>Analisi dei processi inclusa</li>
+        <li>Licenze e configurazione in un unico pacchetto</li>
+        <li>Team formato e autonomo</li>
+      </ul>
+    </div>
+  </div>
+
+  <div
+    class="scene"
+    data-hero-scene
+    role="img"
+    aria-label="Illustrazione: una montagna. Alla base i canali di contatto, email, WhatsApp, chat, telefono e social. I sentieri che partono da ciascuno salgono e si uniscono in vetta, dove sventola una bandiera rossa."
+  >
+    <!-- Versione statica: resta visibile senza WebGL o con animazioni ridotte -->
+    <svg class="fallback" viewBox="0 0 800 620" preserveAspectRatio="xMidYMax meet" aria-hidden="true">
+      <defs>
+        <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+          <stop offset="0" stop-color="#ff7088" stop-opacity=".7"></stop>
+          <stop offset="1" stop-color="#c8142f" stop-opacity="0"></stop>
+        </radialGradient>
+        <linearGradient id="fade" x1="0" y1="0" x2="0" y2="1">
+          <stop offset=".7" stop-color="#14242e" stop-opacity="0"></stop>
+          <stop offset="1" stop-color="#14242e"></stop>
+        </linearGradient>
+      </defs>
+      <path d="M-20 560 120 380l70 60 90-130 80 90 60 160Z" fill="#22404f"></path>
+      <path d="M820 560 700 400l-60 50-80-110-90 100-50 120Z" fill="#22404f"></path>
+      <path d="M90 600 300 300l60 50 60-130 40-60 50 80 50 90 70 70 150 200Z" fill="#2f5367"></path>
+      <path d="M360 350 420 220l40-60 50 80 50 90-40-20-30 40-40-50-30 50-30-70Z" fill="#9db5c1"></path>
+      <path d="M420 220 460 160l50 80-30-10-20 30-20-40-20 20Z" fill="#f5f8f9"></path>
+      <path d="M460 160 510 240l50 90 70 70 150 200H460Z" fill="#14242e" opacity=".28"></path>
+      <circle cx="460" cy="140" r="90" fill="url(#glow)"></circle>
+      <g fill="none" stroke="#bdccd4" stroke-width="2.5" stroke-linecap="round" opacity=".7">
+        <path d="M120 560c80-60 150-70 210-150s70-150 130-250"></path>
+        <path d="M270 580c50-70 90-110 130-180s40-150 60-240"></path>
+        <path d="M420 590c20-80 10-150 30-220s10-130 10-210"></path>
+        <path d="M570 580c-30-80-50-130-80-200s-20-140-30-220"></path>
+        <path d="M720 560c-70-70-140-100-190-180s-50-140-70-220"></path>
+      </g>
+      <g fill="#fff">
+        <circle cx="120" cy="560" r="7"></circle>
+        <circle cx="270" cy="580" r="7"></circle>
+        <circle cx="420" cy="590" r="7"></circle>
+        <circle cx="570" cy="580" r="7"></circle>
+        <circle cx="720" cy="560" r="7"></circle>
+      </g>
+      <path d="M460 160V96" stroke="#e9eef1" stroke-width="3"></path>
+      <path d="M460 96h52l-10 15 10 15h-52Z" fill="#c8142f"></path>
+      <rect x="0" y="0" width="800" height="620" fill="url(#fade)"></rect>
+    </svg>
+
+    <canvas aria-hidden="true"></canvas>
+
+    <div class="chips" aria-hidden="true">
+      {
+        channels.map((c) => (
+          <span class="chip" data-channel>
+            <Icon name={c.icon} size={15} />
+            <span class="t">{c.label}</span>
+          </span>
+        ))
+      }
+      <span class="chip chip--summit" data-summit>
+        <svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true">
+          <path d="M3 8.5l3.2 3.2L13 4.8" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+        Richiesta risolta
+      </span>
+    </div>
+  </div>
+</section>
+
+<script>
+  const root = document.querySelector<HTMLElement>('[data-hero-scene]');
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const saveData = (navigator as Navigator & { connection?: { saveData?: boolean } }).connection?.saveData;
+
+  if (root && !reduce && !saveData) {
+    const start = async () => {
+      try {
+        const { initHeroScene } = await import('../scripts/hero-scene');
+        initHeroScene(root);
+      } catch {
+        // resta l'illustrazione statica
+      }
+    };
+    // carico il 3D dopo il primo render, per non pesare sul tempo di caricamento
+    if ('requestIdleCallback' in window) requestIdleCallback(start, { timeout: 1200 });
+    else setTimeout(start, 200);
+  }
+</script>
+
+<style>
+  .hero {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    background:
+      radial-gradient(90% 70% at 72% 18%, #24475a 0%, transparent 62%),
+      linear-gradient(180deg, #162935 0%, var(--ink) 100%);
+    color: #d3dde3;
+    min-height: min(54rem, calc(100svh - 4.5rem));
+    display: flex;
+    align-items: center;
+  }
+  .layout {
+    position: relative;
+    z-index: 2;
+    padding-block: clamp(3rem, 2rem + 5vw, 6rem);
+    pointer-events: none;
+  }
+  .copy {
+    max-width: 37rem;
+    pointer-events: auto;
+  }
+  .eyebrow {
+    color: #f3a9b6;
+  }
+  h1 {
+    color: #fff;
+    margin-bottom: 0.5em;
+  }
+  h1 em {
+    font-style: normal;
+    color: #ff8196;
+  }
+  .sub {
+    font-size: var(--step-1);
+    line-height: 1.5;
+    color: #c9d6dd;
+    margin-bottom: 2rem;
+    max-width: 33rem;
+  }
+  .proof {
+    list-style: none;
+    margin: 2.25rem 0 0;
+    padding: 0;
+    display: grid;
+    gap: 0.5rem;
+    font-size: var(--step--1);
+    color: #a9bac4;
+  }
+  .proof li {
+    display: flex;
+    align-items: center;
+    gap: 0.6em;
+  }
+  .proof li::before {
+    content: '';
+    width: 0.4em;
+    height: 0.4em;
+    border-radius: 50%;
+    background: #ff8196;
+    flex: none;
+  }
+
+  .scene {
+    position: absolute;
+    z-index: 1;
+    inset: 0 0 0 40%;
+    /* la montagna sfuma verso il testo e verso il basso */
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 12%), linear-gradient(180deg, #000 82%, transparent 100%);
+    mask-image: linear-gradient(90deg, transparent 0%, #000 12%), linear-gradient(180deg, #000 82%, transparent 100%);
+    -webkit-mask-composite: source-in;
+    mask-composite: intersect;
+  }
+  .fallback,
+  canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+  canvas {
+    opacity: 0;
+    transition: opacity 0.9s ease;
+  }
+  .fallback {
+    transition: opacity 0.6s ease;
+  }
+  .scene.is-live canvas {
+    opacity: 1;
+  }
+  .scene.is-live .fallback {
+    opacity: 0;
+  }
+  .chips {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.8s ease 0.4s;
+  }
+  .scene.is-live .chips {
+    opacity: 1;
+  }
+  .chip {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4em;
+    padding: 0.32em 0.75em 0.32em 0.6em;
+    border-radius: 999px;
+    background: rgb(255 255 255 / 10%);
+    border: 1px solid rgb(255 255 255 / 22%);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    color: #fff;
+    font-size: 0.82rem;
+    font-weight: 600;
+    white-space: nowrap;
+    pointer-events: auto;
+    cursor: default;
+    transition:
+      background-color 0.2s,
+      border-color 0.2s;
+    will-change: transform;
+  }
+  .chip:hover {
+    background: rgb(255 255 255 / 22%);
+    border-color: rgb(255 255 255 / 55%);
+  }
+  .chip--summit {
+    background: var(--red);
+    border-color: transparent;
+    pointer-events: none;
+    opacity: 0;
+  }
+
+  @media (max-width: 62rem) {
+    .hero {
+      display: block;
+      min-height: 0;
+    }
+    .layout {
+      padding-bottom: 1rem;
+    }
+    .copy {
+      max-width: 40rem;
+    }
+    .scene {
+      position: relative;
+      inset: auto;
+      height: clamp(20rem, 78vw, 32rem);
+    }
+    .scene {
+      -webkit-mask-image: linear-gradient(180deg, #000 88%, transparent 100%);
+      mask-image: linear-gradient(180deg, #000 88%, transparent 100%);
+    }
+    .chip {
+      font-size: 0.74rem;
+      padding: 0.25em 0.6em 0.25em 0.5em;
+    }
+  }
+  @media (max-width: 40rem) {
+    /* su schermi stretti restano solo le icone, per non sovrapporre le etichette */
+    .chip[data-channel] {
+      padding: 0.4em;
+    }
+    .chip .t {
+      display: none;
+    }
+  }
+</style>

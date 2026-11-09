@@ -1,0 +1,122 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import AuditForm from '../components/AuditForm.astro';
+import Icon from '../components/Icon.astro';
+import { site, cta } from '../data/site';
+
+const c = site.company;
+const crumbs = [{ label: 'Contatti', href: '/contatti/' }];
+---
+
+<Base
+  title="Contatti: parlate con un esperto Zendesk"
+  description="Contattate CloudSherpa per una demo personalizzata di Zendesk, un preventivo o informazioni sui nostri servizi di customer service."
+  breadcrumbs={crumbs}
+>
+  <PageHero
+    eyebrow="Contatti"
+    title="Parliamo del vostro customer service"
+    lead="Chiedeteci una demo costruita sui vostri processi, un preventivo o un semplice confronto. Vi rispondiamo in breve tempo."
+    breadcrumbs={crumbs}
+  />
+
+  <section class="section">
+    <div class="wrap layout">
+      <div class="panel">
+        <h2>Scriveteci</h2>
+        <AuditForm kind="contatto" />
+      </div>
+      <div class="info">
+        <h2>Contatti diretti</h2>
+        <ul class="direct">
+          {
+            c.email && (
+              <li>
+                <Icon name="mail" />
+                <a href={`mailto:${c.email}`}>{c.email}</a>
+              </li>
+            )
+          }
+          {
+            c.phone && (
+              <li>
+                <Icon name="phone" />
+                <a href={`tel:${c.phone.replace(/\s/g, '')}`}>{c.phone}</a>
+              </li>
+            )
+          }
+          {
+            c.address && (
+              <li>
+                <Icon name="pin" />
+                <span>
+                  {c.address}
+                  <br />
+                  {c.city}
+                </span>
+              </li>
+            )
+          }
+        </ul>
+        <div class="aside">
+          <h3>Preferite partire dai numeri?</h3>
+          <p>Con l’audit gratuito analizziamo come gestite oggi le richieste e vi indichiamo le priorità.</p>
+          <a class="btn btn--ghost" href={cta.primary.href}>{cta.primary.label}</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .layout {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 3rem 5rem;
+    align-items: start;
+  }
+  h2 {
+    font-size: var(--step-2);
+  }
+  .panel {
+    background: var(--snow);
+    border: 1px solid var(--line);
+    border-radius: calc(var(--radius) * 1.3);
+    padding: clamp(1.4rem, 1rem + 2.5vw, 2.75rem);
+    box-shadow: var(--shadow);
+  }
+  .direct {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 2.5rem;
+    display: grid;
+    gap: 1.1rem;
+    font-size: var(--step-1);
+  }
+  .direct li {
+    display: flex;
+    gap: 0.9rem;
+    align-items: flex-start;
+  }
+  .direct :global(svg) {
+    flex: none;
+    color: var(--red);
+    margin-top: 0.2em;
+  }
+  .direct a {
+    color: var(--ink);
+  }
+  .aside {
+    border-top: 1px solid var(--line);
+    padding-top: 2rem;
+  }
+  .aside p {
+    color: var(--text-soft);
+  }
+  @media (max-width: 60rem) {
+    .layout {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

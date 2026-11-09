@@ -1,0 +1,21 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from './PageHero.astro';
+interface Props {
+  title: string;
+  description: string;
+  heading: string;
+  lead?: string;
+  noindex?: boolean;
+}
+const { title, description, heading, lead, noindex } = Astro.props;
+---
+
+<Base title={title} description={description} noindex={noindex}>
+  <PageHero title={heading} lead={lead} />
+  <section class="section">
+    <div class="wrap-narrow prose">
+      <slot />
+    </div>
+  </section>
+</Base>

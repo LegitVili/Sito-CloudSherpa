@@ -1,0 +1,8 @@
+---
+import BlogIndex from '../../components/BlogIndex.astro';
+import { getPosts, PAGE_SIZE } from '../../data/blog';
+
+const posts = await getPosts();
+---
+
+<BlogIndex posts={posts.slice(0, PAGE_SIZE)} page={1} pages={Math.ceil(posts.length / PAGE_SIZE)} />

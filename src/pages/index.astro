@@ -1,0 +1,458 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import Hero from '../components/Hero.astro';
+import Steps from '../components/Steps.astro';
+import Faq from '../components/Faq.astro';
+import CtaBand from '../components/CtaBand.astro';
+import Icon from '../components/Icon.astro';
+import PostCard from '../components/PostCard.astro';
+import { site, cta, faqHome } from '../data/site';
+import { services } from '../data/services';
+import { solutions } from '../data/solutions';
+
+const posts = (await getCollection('blog')).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()).slice(0, 3);
+
+const faqSchema = {
+  '@type': 'FAQPage',
+  mainEntity: faqHome.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+
+const sectors = ['Betting e gaming', 'E-commerce', 'Retail', 'Trasporti', 'Sanità'];
+---
+
+<Base
+  title="CloudSherpa | Partner Zendesk in Italia per customer service e agenti AI"
+  description={site.description}
+  schema={[faqSchema]}
+>
+  <Hero />
+
+  <!-- Fiducia -->
+  <section class="trust">
+    <div class="wrap trust-inner">
+      <p class="partner">
+        <span class="badge">Partner Zendesk</span>
+        Licenze, implementazione e supporto da un unico interlocutore.
+      </p>
+      <ul aria-label="Settori in cui lavoriamo">
+        {sectors.map((s) => <li>{s}</li>)}
+      </ul>
+    </div>
+  </section>
+
+  <!-- Problema -->
+  <section class="section">
+    <div class="wrap problem">
+      <div class="section-head" data-reveal>
+        <p class="eyebrow">Il punto di partenza</p>
+        <h2>Le richieste arrivano da troppi canali. E il team risponde a mano, ogni volta, alle stesse domande.</h2>
+      </div>
+      <div class="grid grid--3">
+        <article class="pain" data-reveal>
+          <Icon name="clock" size={28} />
+          <h3>Il cliente aspetta</h3>
+          <p>E quando aspetta troppo se ne va, oppure lascia una recensione negativa.</p>
+        </article>
+        <article class="pain" data-reveal>
+          <Icon name="users" size={28} />
+          <h3>Il costo cresce con il fatturato</h3>
+          <p>Ogni aumento di volume costringe ad aggiungere operatori, invece di rendere più efficiente il lavoro.</p>
+        </article>
+        <article class="pain" data-reveal>
+          <Icon name="chart" size={28} />
+          <h3>Mancano i numeri</h3>
+          <p>Nessuno sa con precisione quante richieste arrivano, su che cosa e quanto tempo costano.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Servizi -->
+  <section class="section section--snow">
+    <div class="wrap">
+      <div class="section-head" data-reveal>
+        <p class="eyebrow">Che cosa facciamo</p>
+        <h2>Un customer service ordinato, che regge la crescita</h2>
+        <p class="lead">
+          Implementiamo Zendesk partendo dai vostri processi, attiviamo l’AI dove fa davvero risparmiare tempo e
+          colleghiamo tutto ai sistemi che usate già.
+        </p>
+      </div>
+      <div class="grid grid--3">
+        {
+          services.map((s) => (
+            <article class="card card--link" data-reveal>
+              <span class="icon">
+                <Icon name={s.icon} />
+              </span>
+              <h3>
+                <a href={`/servizi/${s.slug}/`}>{s.title}</a>
+              </h3>
+              <p>{s.short}</p>
+              <span class="more" aria-hidden="true">
+                Scopri di più →
+              </span>
+            </article>
+          ))
+        }
+        <article class="card card--cta" data-reveal>
+          <h3>Non sapete da dove partire?</h3>
+          <p>Con l’audit gratuito vi diciamo dove state perdendo efficienza e quali sono le priorità.</p>
+          <a class="btn btn--primary" href={cta.primary.href}>
+            {cta.primary.label}
+          </a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Metodo -->
+  <section class="section contours">
+    <div class="wrap">
+      <div class="section-head" data-reveal>
+        <p class="eyebrow">Come operiamo</p>
+        <h2>Quattro tappe, dal campo base alla vetta</h2>
+        <p class="lead">
+          Si parte in modo semplice ma strutturato, senza complessità inutili. L’obiettivo è avere un sistema che
+          funziona in tempi brevi e un team in grado di usarlo da solo.
+        </p>
+      </div>
+      <Steps />
+      <p class="after-steps" data-reveal>
+        <a class="btn btn--ghost" href="/come-operiamo/">
+          Il metodo nel dettaglio
+          <span class="arrow" aria-hidden="true">→</span>
+        </a>
+      </p>
+    </div>
+  </section>
+
+  <!-- Tempi -->
+  <section class="timing">
+    <div class="wrap timing-inner">
+      <div data-reveal>
+        <p class="figure">2–4 <span>settimane</span></p>
+        <p>per vedere i primi benefici dopo l’avvio</p>
+      </div>
+      <div data-reveal>
+        <p class="figure">2–3 <span>mesi</span></p>
+        <p>per l’ottimizzazione completa del sistema</p>
+      </div>
+      <div data-reveal>
+        <p class="figure">1 <span>interlocutore</span></p>
+        <p>per licenze, configurazione, integrazioni e formazione</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Settori -->
+  <section class="section section--snow">
+    <div class="wrap">
+      <div class="section-head" data-reveal>
+        <p class="eyebrow">Soluzioni per settore</p>
+        <h2>Dove le richieste sono tante e si ripetono, i risultati arrivano prima</h2>
+      </div>
+      <div class="grid grid--3">
+        {
+          solutions.map((s) => (
+            <article class="card card--link" data-reveal>
+              <h3>
+                <a href={`/soluzioni/${s.slug}/`}>{s.title}</a>
+              </h3>
+              <p>{s.short}</p>
+              <ul class="tags" aria-label="Richieste tipiche">
+                {s.requests.slice(0, 4).map((r) => (
+                  <li class="tag">{r}</li>
+                ))}
+              </ul>
+              <span class="more" aria-hidden="true">
+                Vedi la soluzione →
+              </span>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Caso studio -->
+  <section class="section section--dark case">
+    <div class="wrap case-grid">
+      <div data-reveal>
+        <p class="eyebrow">Caso studio · Betting e gaming</p>
+        <h2>Lottomatica Group: da canali frammentati a un unico ambiente multi-brand</h2>
+        <p class="lead">
+          Richieste gestite su più sistemi, poca visibilità sui flussi e passaggi complicati tra i livelli di supporto.
+          Abbiamo implementato Zendesk in modalità omnicanale e multi-brand, con flussi su tre livelli e dashboard di
+          controllo.
+        </p>
+        <a class="btn btn--light" href="/casi-studio/lottomatica/">
+          Leggi il caso studio
+          <span class="arrow" aria-hidden="true">→</span>
+        </a>
+      </div>
+      <ul class="checks" data-reveal>
+        <li><strong>Tempi di gestione più brevi</strong> per le richieste dei clienti</li>
+        <li><strong>Meno passaggi tra sistemi</strong> per gli operatori</li>
+        <li><strong>Visibilità completa</strong> su processi e performance</li>
+        <li><strong>Risorse allocate meglio</strong> tra i livelli di supporto</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Perché un partner -->
+  <section class="section">
+    <div class="wrap why">
+      <div class="section-head" data-reveal>
+        <p class="eyebrow">Perché un partner</p>
+        <h2>Zendesk non funziona appena acceso</h2>
+        <p class="lead">
+          Un agente AI con una knowledge base disordinata, o senza accesso al gestionale, risponde male. La differenza
+          la fa la messa a terra. È il nostro lavoro.
+        </p>
+      </div>
+      <div class="grid grid--3">
+        <article class="pillar" data-reveal>
+          <p class="k">Processi</p>
+          <h3>Prima il flusso, poi lo strumento</h3>
+          <p>Decidiamo insieme come entra una richiesta, chi la gestisce e quando sale di livello. Poi configuriamo.</p>
+        </article>
+        <article class="pillar" data-reveal>
+          <p class="k">Integrazioni</p>
+          <h3>I dati dove servono</h3>
+          <p>Colleghiamo Zendesk a gestionale, CRM ed e-commerce con app del Marketplace o sviluppo su misura.</p>
+        </article>
+        <article class="pillar" data-reveal>
+          <p class="k">Contenuti e persone</p>
+          <h3>Knowledge base e formazione</h3>
+          <p>Riordiniamo i contenuti che alimentano l’AI e formiamo il team, perché possa proseguire in autonomia.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Blog -->
+  <section class="section section--snow">
+    <div class="wrap">
+      <div class="section-head head-row" data-reveal>
+        <div>
+          <p class="eyebrow">Dal blog</p>
+          <h2>Guide e approfondimenti su Zendesk e customer service</h2>
+        </div>
+        <a class="btn btn--ghost" href="/blog/">Tutti gli articoli</a>
+      </div>
+      <div class="grid grid--3">
+        {posts.map((p) => <PostCard post={p} />)}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section">
+    <div class="wrap faq-grid">
+      <div class="section-head" data-reveal>
+        <p class="eyebrow">Domande frequenti</p>
+        <h2>Le risposte alle domande che ci fanno più spesso</h2>
+        <p>
+          Non trovate la vostra? <a href="/contatti/">Scriveteci</a>.
+        </p>
+      </div>
+      <Faq items={faqHome} />
+    </div>
+  </section>
+
+  <CtaBand />
+</Base>
+
+<style>
+  .trust {
+    background: var(--snow);
+    border-bottom: 1px solid var(--line);
+  }
+  .trust-inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem 2rem;
+    padding-block: 1.4rem;
+    font-size: 0.98rem;
+    color: var(--text-soft);
+  }
+  .partner {
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.6rem 0.9rem;
+  }
+  .badge {
+    font-weight: 700;
+    color: var(--ink);
+    border: 1.5px solid var(--ink);
+    border-radius: 6px;
+    padding: 0.2em 0.6em;
+    font-size: 0.85rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  .trust ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 1.4rem;
+    margin: 0;
+    padding: 0;
+    font-weight: 600;
+    color: var(--slate);
+  }
+
+  .problem .section-head {
+    max-width: 58rem;
+  }
+  .pain {
+    padding-top: 1.5rem;
+    border-top: 2px solid var(--ink);
+  }
+  .pain :global(svg) {
+    color: var(--red);
+    margin-bottom: 1rem;
+  }
+  .pain p {
+    color: var(--text-soft);
+    margin: 0;
+  }
+
+  .card--cta {
+    background: var(--ink) !important;
+    border-color: var(--ink);
+    color: #c9d6dd;
+    justify-content: center;
+  }
+  .card--cta h3 {
+    color: #fff;
+  }
+  .card--cta p {
+    color: #c9d6dd;
+    margin-bottom: 1.4rem !important;
+  }
+  .card--cta .btn {
+    align-self: flex-start;
+  }
+
+  .after-steps {
+    margin: 2.5rem 0 0;
+  }
+
+  .timing {
+    background: var(--slate);
+    color: #dbe5ea;
+  }
+  .timing-inner {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    padding-block: clamp(2.5rem, 2rem + 2vw, 4rem);
+  }
+  .timing p {
+    margin: 0;
+    max-width: 18rem;
+  }
+  .figure {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: var(--step-4);
+    line-height: 1;
+    color: #fff;
+    letter-spacing: -0.03em;
+    margin-bottom: 0.5rem !important;
+  }
+  .figure span {
+    font-size: 0.38em;
+    letter-spacing: 0;
+    font-weight: 600;
+    color: #dbe5ea;
+  }
+
+  .tags {
+    list-style: none;
+    padding: 0;
+    margin: 1.1rem 0 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .case-grid {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 3rem 4rem;
+    align-items: center;
+  }
+  .case .lead {
+    margin-bottom: 2rem;
+  }
+  .case .checks {
+    font-size: var(--step-1);
+    line-height: 1.4;
+    gap: 1.1rem;
+  }
+
+  .pillar {
+    padding: 1.6rem 0 0 1.4rem;
+    border-left: 2px solid var(--mist);
+  }
+  .pillar .k {
+    font-size: var(--step--1);
+    font-weight: 650;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--slate-2);
+    margin-bottom: 0.6rem;
+  }
+  .pillar p:last-child {
+    color: var(--text-soft);
+    margin: 0;
+  }
+
+  .head-row {
+    max-width: none;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 1.5rem;
+  }
+  .head-row h2 {
+    margin-bottom: 0;
+    max-width: 20em;
+  }
+
+  .faq-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 2rem 4rem;
+    align-items: start;
+  }
+  .faq-grid .section-head {
+    position: sticky;
+    top: 6.5rem;
+    margin-bottom: 0;
+  }
+
+  @media (max-width: 56rem) {
+    .timing-inner,
+    .case-grid,
+    .faq-grid {
+      grid-template-columns: 1fr;
+    }
+    .faq-grid .section-head {
+      position: static;
+    }
+  }
+</style>

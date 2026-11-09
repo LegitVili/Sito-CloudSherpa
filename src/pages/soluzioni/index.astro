@@ -1,0 +1,92 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import { solutions } from '../../data/solutions';
+
+const crumbs = [{ label: 'Soluzioni', href: '/soluzioni/' }];
+---
+
+<Base
+  title="Soluzioni Zendesk per settore: betting, e-commerce, logistica"
+  description="Customer service con Zendesk e agenti AI per betting e gaming, retail ed e-commerce, trasporti e logistica. Le richieste tipiche e come le gestiamo."
+  breadcrumbs={crumbs}
+>
+  <PageHero
+    eyebrow="Soluzioni per settore"
+    title="Ogni settore ha le sue domande ricorrenti. Partiamo da quelle."
+    lead="Lavoriamo soprattutto dove le richieste dei clienti sono tante, ripetitive e arrivano da più canali: è lì che automazione e centralizzazione danno risultati in poche settimane."
+    breadcrumbs={crumbs}
+  />
+
+  <section class="section">
+    <div class="wrap grid grid--3">
+      {
+        solutions.map((s) => (
+          <article class="card card--link" data-reveal>
+            <h2>
+              <a href={`/soluzioni/${s.slug}/`}>{s.title}</a>
+            </h2>
+            <p>{s.short}</p>
+            <h3>Richieste tipiche</h3>
+            <ul>
+              {s.requests.map((r) => (
+                <li class="tag">{r}</li>
+              ))}
+            </ul>
+            <span class="more" aria-hidden="true">
+              Vedi la soluzione →
+            </span>
+          </article>
+        ))
+      }
+    </div>
+    <div class="wrap-narrow other" data-reveal>
+      <h2>Il vostro settore non è in elenco?</h2>
+      <p>
+        Abbiamo seguito progetti anche in sanità, editoria, automotive e servizi. Il metodo è lo stesso: si parte dai
+        processi e dai motivi di contatto. <a href="/contatti/">Parliamone</a>.
+      </p>
+    </div>
+  </section>
+
+  <CtaBand />
+</Base>
+
+<style>
+  .card h2 {
+    font-size: var(--step-2);
+  }
+  .card h3 {
+    font-family: var(--font-body);
+    font-size: var(--step--1);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--slate-2);
+    margin: 1.4rem 0 0.6rem;
+  }
+  .card h2 a {
+    color: inherit;
+    text-decoration: none;
+  }
+  .card h2 a::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+  }
+  .card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+  .other {
+    margin-top: 4rem;
+    text-align: center;
+  }
+  .other h2 {
+    font-size: var(--step-2);
+  }
+</style>

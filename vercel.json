@@ -1,0 +1,960 @@
+{
+  "trailingSlash": true,
+  "redirects": [
+    {
+      "source": "/sezione-chi-siamo/",
+      "destination": "/chi-siamo/",
+      "statusCode": 301
+    },
+    {
+      "source": "/sezione-come-operiamo/",
+      "destination": "/come-operiamo/",
+      "statusCode": 301
+    },
+    {
+      "source": "/i-nostri-servizi/",
+      "destination": "/servizi/",
+      "statusCode": 301
+    },
+    {
+      "source": "/sezione-le-nostre-soluzioni/",
+      "destination": "/soluzioni/",
+      "statusCode": 301
+    },
+    {
+      "source": "/contact/",
+      "destination": "/contatti/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/alfabeto-zendesk/",
+      "destination": "/blog/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/courses/",
+      "destination": "/blog/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/customer-care/",
+      "destination": "/blog/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/customer-experience/",
+      "destination": "/blog/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/marketing-omnicanale/",
+      "destination": "/blog/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/scenari-digitali/",
+      "destination": "/blog/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/system-integration/",
+      "destination": "/blog/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/uncategorized/",
+      "destination": "/blog/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/zendesk/",
+      "destination": "/blog/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/zendesk-chat/",
+      "destination": "/blog/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/zendesk-explore/",
+      "destination": "/blog/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/zendesk-guide/",
+      "destination": "/blog/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/zendesk-social/",
+      "destination": "/blog/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/zendesk-support/",
+      "destination": "/blog/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/",
+      "destination": "/blog/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/zendesk/zendesk-come-hub-centrale-connetti-i-tuoi-strumenti-aziendali-per-un-servizio-ai-clienti-senza-interruzioni/",
+      "destination": "/blog/zendesk-come-hub-centrale-connetti-i-tuoi-strumenti-aziendali-per-un-servizio-ai-clienti-senza-interruzioni/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/customer-care/assistenza-agenti-ai-linnovazione-nel-customer-service-con-lai-di-zendesk/",
+      "destination": "/blog/assistenza-agenti-ai-linnovazione-nel-customer-service-con-lai-di-zendesk/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/customer-care/workflow-aziendale-migliora-i-flussi-del-customer-service-con-lai-di-zendesk/",
+      "destination": "/blog/workflow-aziendale-migliora-i-flussi-del-customer-service-con-lai-di-zendesk/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/customer-care/lai-di-zendesk-rende-la-piattaforma-customer-care-empatica/",
+      "destination": "/blog/lai-di-zendesk-rende-la-piattaforma-customer-care-empatica/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/customer-care/customer-care-efficace-i-dati-di-zendesk-sul-roi-emersi-dallo-studio-forrester/",
+      "destination": "/blog/customer-care-efficace-i-dati-di-zendesk-sul-roi-emersi-dallo-studio-forrester/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/scenari-digitali/ridefinire-lesperienza-del-dipendente-nellera-digitale/",
+      "destination": "/blog/ridefinire-lesperienza-del-dipendente-nellera-digitale/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/customer-experience/le-priorita-chiave-dei-cx-leaders-per-i-prossimi-anni-una-visione-completa/",
+      "destination": "/blog/le-priorita-chiave-dei-cx-leaders-per-i-prossimi-anni-una-visione-completa/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/zendesk/zendesk-e-klaus-ai-e-qualita-del-servizio-nella-cx/",
+      "destination": "/blog/zendesk-e-klaus-ai-e-qualita-del-servizio-nella-cx/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/customer-care/trasformare-lassistenza-clienti-con-zendesk-i-kpi-del-customer-service/",
+      "destination": "/blog/trasformare-lassistenza-clienti-con-zendesk-i-kpi-del-customer-service/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/zendesk/zendesk-chat/esperienze-conversazionali-di-alto-livello-con-il-chatbot-per-aziende-di-zendesk/",
+      "destination": "/blog/esperienze-conversazionali-di-alto-livello-con-il-chatbot-per-aziende-di-zendesk/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/customer-care/customer-care-ecommerce-migliori-pratiche-e-come-implementarlo-con-zendesk/",
+      "destination": "/blog/customer-care-ecommerce-migliori-pratiche-e-come-implementarlo-con-zendesk/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/zendesk/software-per-il-settore-sanitario-la-suite-zendesk-per-la-gestione-dei-pazienti/",
+      "destination": "/blog/software-per-il-settore-sanitario-la-suite-zendesk-per-la-gestione-dei-pazienti/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/zendesk/zendesk-support/software-scommesse-zendesk-support-per-il-servizio-clienti-nel-betting/",
+      "destination": "/blog/software-scommesse-zendesk-support-per-il-servizio-clienti-nel-betting/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/zendesk/zendesk-support/servizio-di-messaggistica-sms-limportanza-dellsms-nel-customer-service/",
+      "destination": "/blog/servizio-di-messaggistica-sms-limportanza-dellsms-nel-customer-service/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/zendesk/zendesk-guide/motore-di-ricerca-semantico-cose-e-come-funziona-in-zendesk-guide/",
+      "destination": "/blog/motore-di-ricerca-semantico-cose-e-come-funziona-in-zendesk-guide/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/zendesk/workforce-engagement-management-per-il-successo-aziendale/",
+      "destination": "/blog/workforce-engagement-management-per-il-successo-aziendale/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/zendesk/zendesk-explore/analisi-del-servizio-clienti-kpi-e-insight-con-zendesk-explore-per-migliorare-il-customer-service/",
+      "destination": "/blog/analisi-del-servizio-clienti-kpi-e-insight-con-zendesk-explore-per-migliorare-il-customer-service/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/zendesk/zendesk-support/ticket-management-come-automatizzare-il-ticket-workflow-con-zendesk-support/",
+      "destination": "/blog/ticket-management-come-automatizzare-il-ticket-workflow-con-zendesk-support/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/zendesk/silos-aziendali-abbatterli-tra-sales-e-customer-service-e-possibile/",
+      "destination": "/blog/silos-aziendali-abbatterli-tra-sales-e-customer-service-e-possibile/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/zendesk/lintelligenza-artificiale-nel-customer-service-con-zendesk-ai-e-i-suoi-agenti-ai/",
+      "destination": "/blog/lintelligenza-artificiale-nel-customer-service-con-zendesk-ai-e-i-suoi-agenti-ai/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/customer-experience/migliora-la-mobile-customer-experience-con-la-messaggistica-e-la-live-chat/",
+      "destination": "/blog/migliora-la-mobile-customer-experience-con-la-messaggistica-e-la-live-chat/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/scenari-digitali/lintegrazione-tra-ultimate-e-zendesk-il-customer-support-ancora-piu-potente/",
+      "destination": "/blog/lintegrazione-tra-ultimate-e-zendesk-il-customer-support-ancora-piu-potente/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/zendesk/zendesk-support/come-funziona-la-sla-policy-sulla-riapertura-di-un-ticket/",
+      "destination": "/blog/come-funziona-la-sla-policy-sulla-riapertura-di-un-ticket/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/zendesk/come-cambia-lassistenza-al-cliente-nel-2024-il-webinar-cloudsherpa/",
+      "destination": "/blog/come-cambia-lassistenza-al-cliente-nel-2024-il-webinar-cloudsherpa/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/customer-care/assistenza-ai-clienti-automatizzata-come-impostarla/",
+      "destination": "/blog/assistenza-ai-clienti-automatizzata-come-impostarla/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/zendesk/zendesk-explore/un-data-visualization-software-per-trasformare-i-dati-in-azioni-concrete/",
+      "destination": "/blog/un-data-visualization-software-per-trasformare-i-dati-in-azioni-concrete/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/customer-care/il-customer-care-ecommerce-con-zendesk-la-chiave-per-una-cx-impeccabile/",
+      "destination": "/blog/il-customer-care-ecommerce-con-zendesk-la-chiave-per-una-cx-impeccabile/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/zendesk/ai-e-manufacturing-la-nuova-frontiera-per-lindustria-del-futuro/",
+      "destination": "/blog/ai-e-manufacturing-la-nuova-frontiera-per-lindustria-del-futuro/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/zendesk/zendesk-support/software-helpdesk-come-migliorarlo-per-renderlo-piu-efficiente/",
+      "destination": "/blog/software-helpdesk-come-migliorarlo-per-renderlo-piu-efficiente/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/zendesk/zendesk-explore/elaborare-i-dati-aziendali-nel-cuore-di-zendesk-explore/",
+      "destination": "/blog/elaborare-i-dati-aziendali-nel-cuore-di-zendesk-explore/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/zendesk/zendesk-chat/allineare-il-chatbot-ai-con-gli-obiettivi-aziendali/",
+      "destination": "/blog/allineare-il-chatbot-ai-con-gli-obiettivi-aziendali/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/customer-experience/zendesk-cx-trends-2024-10-customer-experience-trends-del-nuovo-anno/",
+      "destination": "/blog/zendesk-cx-trends-2024-10-customer-experience-trends-del-nuovo-anno/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/zendesk/zendesk-support/online-customer-service-i-5-vantaggi-di-usare-un-buon-help-desk/",
+      "destination": "/blog/online-customer-service-i-5-vantaggi-di-usare-un-buon-help-desk/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/zendesk/zendesk-support/perche-zendesk-support-e-tra-i-migliori-software-help-desk/",
+      "destination": "/blog/perche-zendesk-support-e-tra-i-migliori-software-help-desk/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/customer-experience/customer-experience-online-migliorare-lesperienza-post-acquisto/",
+      "destination": "/blog/customer-experience-online-migliorare-lesperienza-post-acquisto/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/scenari-digitali/il-2023-di-cloudsherpa-ripercorriamo-le-tappe/",
+      "destination": "/blog/il-2023-di-cloudsherpa-ripercorriamo-le-tappe/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/customer-experience/come-creare-la-miglior-mobile-customer-experience-possibile/",
+      "destination": "/blog/come-creare-la-miglior-mobile-customer-experience-possibile/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/zendesk/zendesk-chat/in-quali-settori-puo-essere-utilizzata-lintelligenza-artificiale-conversazionale/",
+      "destination": "/blog/in-quali-settori-puo-essere-utilizzata-lintelligenza-artificiale-conversazionale/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/zendesk/zendesk-support/sla-service-level-agreement-a-cosa-servono-e-componenti-chiave/",
+      "destination": "/blog/sla-service-level-agreement-a-cosa-servono-e-componenti-chiave/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/zendesk/zendesk-chat/answer-bot-scopri-il-chatbot-assistenza-clienti-di-zendesk/",
+      "destination": "/blog/answer-bot-scopri-il-chatbot-assistenza-clienti-di-zendesk/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/zendesk/zendesk-guide/la-comprensione-semantica-fa-parte-di-zendesk-guide/",
+      "destination": "/blog/la-comprensione-semantica-fa-parte-di-zendesk-guide/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/scenari-digitali/zendesk-roadshow-roma-e-cloudsherpa-levento-dedicato-allai-e-al-customer-service/",
+      "destination": "/blog/zendesk-roadshow-roma-e-cloudsherpa-levento-dedicato-allai-e-al-customer-service/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/zendesk/zendesk-chat/comunicazione-proattiva-impostare-i-messaggi-proattivi-di-zendesk/",
+      "destination": "/blog/comunicazione-proattiva-impostare-i-messaggi-proattivi-di-zendesk/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/zendesk/intelligenza-artificiale-nelle-aziende-come-migliora-l-operativita/",
+      "destination": "/blog/intelligenza-artificiale-nelle-aziende-come-migliora-l-operativita/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/zendesk/collaborazione-aziendale-nelle-grandi-imprese-con-zendesk-suite/",
+      "destination": "/blog/collaborazione-aziendale-nelle-grandi-imprese-con-zendesk-suite/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/zendesk/zendesk-support/la-gestione-dei-ticket-sospesi-con-zendesk-support/",
+      "destination": "/blog/la-gestione-dei-ticket-sospesi-con-zendesk-support/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/zendesk/zendesk-support/zendesk-support-help-desk-e-whatsapp-per-parlare-con-i-clienti/",
+      "destination": "/blog/zendesk-support-help-desk-e-whatsapp-per-parlare-con-i-clienti/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/customer-experience/la-relazione-con-cliente-cambia-con-il-commercio-conversazionale/",
+      "destination": "/blog/la-relazione-con-cliente-cambia-con-il-commercio-conversazionale/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/zendesk/zendesk-support/servizio-help-desk-mobile-per-assistere-i-clienti-da-ogni-luogo/",
+      "destination": "/blog/servizio-help-desk-mobile-per-assistere-i-clienti-da-ogni-luogo/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/zendesk/7-step-per-la-knowledge-base-solution-interna-della-tua-azienda/",
+      "destination": "/blog/7-step-per-la-knowledge-base-solution-interna-della-tua-azienda/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/zendesk/gestionale-hr-zendesk-per-il-reparto-hr/",
+      "destination": "/blog/gestionale-hr-zendesk-per-il-reparto-hr/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/customer-experience/intelligenza-artificiale-forte-e-debole-scopri-zendesk-advanced-ai/",
+      "destination": "/blog/intelligenza-artificiale-forte-e-debole-scopri-zendesk-advanced-ai/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/customer-experience/profilo-cliente-cosa-e-e-come-crearlo-partendo-dai-dati/",
+      "destination": "/blog/profilo-cliente-cosa-e-e-come-crearlo-partendo-dai-dati/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/zendesk/cosa-sono-i-customer-portals-prova-le-soluzioni-zendesk/",
+      "destination": "/blog/cosa-sono-i-customer-portals-prova-le-soluzioni-zendesk/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/zendesk/call-center-software-per-parlare-direttamente-con-i-clienti/",
+      "destination": "/blog/call-center-software-per-parlare-direttamente-con-i-clienti/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/marketing-omnicanale/marketing-e-digital-communication-con-la-suite-zendesk/",
+      "destination": "/blog/marketing-e-digital-communication-con-la-suite-zendesk/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/customer-experience/mobile-web-marketing-come-interagire-con-i-clienti/",
+      "destination": "/blog/mobile-web-marketing-come-interagire-con-i-clienti/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/zendesk/ai-chatbot-ma-quante-tipologie-di-chatbot-esistono/",
+      "destination": "/blog/ai-chatbot-ma-quante-tipologie-di-chatbot-esistono/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/zendesk/zendesk-explore/indicatori-customer-satisfaction-analizza-le-metriche-con-zendesk/",
+      "destination": "/blog/indicatori-customer-satisfaction-analizza-le-metriche-con-zendesk/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/customer-experience/migliorare-la-relazione-con-i-clienti-10-modi-per-farlo/",
+      "destination": "/blog/migliorare-la-relazione-con-i-clienti-10-modi-per-farlo/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/customer-care/social-media-customer-service-un-approccio-diverso-con-i-clienti/",
+      "destination": "/blog/social-media-customer-service-un-approccio-diverso-con-i-clienti/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/customer-experience/analisi-predittiva-dei-dati-per-migliorare-la-customer-satisfaction/",
+      "destination": "/blog/analisi-predittiva-dei-dati-per-migliorare-la-customer-satisfaction/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/customer-experience/digital-customer-experience-con-il-software-cx-di-zendesk/",
+      "destination": "/blog/digital-customer-experience-con-il-software-cx-di-zendesk/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/customer-experience/webinar-ai-conversazionale-e-chatbot-i-vantaggi-per-la-tua-impresa/",
+      "destination": "/blog/webinar-ai-conversazionale-e-chatbot-i-vantaggi-per-la-tua-impresa/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/customer-care/lascolto-del-cliente-attraverso-il-management-feedback/",
+      "destination": "/blog/lascolto-del-cliente-attraverso-il-management-feedback/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/zendesk/i-5-principali-usi-dellai-conversazionale-nellassistenza-clienti/",
+      "destination": "/blog/i-5-principali-usi-dellai-conversazionale-nellassistenza-clienti/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/customer-experience/cxo-day-cloudsherpa-all-evento-customer-experience-officer/",
+      "destination": "/blog/cxo-day-cloudsherpa-all-evento-customer-experience-officer/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/customer-experience/chat-gpt-e-zendesk-per-un-esperienza-clienti-intelligente/",
+      "destination": "/blog/chat-gpt-e-zendesk-per-un-esperienza-clienti-intelligente/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/zendesk/software-gestione-ticket-le-funzionalita-di-zendesk-support/",
+      "destination": "/blog/software-gestione-ticket-le-funzionalita-di-zendesk-support/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/customer-care/customer-retention-strategy-7-strategie-di-fidelizzazione-del-cliente/",
+      "destination": "/blog/customer-retention-strategy-7-strategie-di-fidelizzazione-del-cliente/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/customer-experience/messaggistica-proattiva/",
+      "destination": "/blog/messaggistica-proattiva/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/customer-care/lhelp-desk-interno-per-una-migliore-gestione-dei-dipendenti/",
+      "destination": "/blog/lhelp-desk-interno-per-una-migliore-gestione-dei-dipendenti/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/customer-experience/customer-experience-e-turismo-con-zendesk-offri-una-cx-di-alto-livello/",
+      "destination": "/blog/customer-experience-e-turismo-con-zendesk-offri-una-cx-di-alto-livello/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/zendesk/digital-manufacturing-le-tecnologie-driver-per-le-fabbriche-in-ununica-piattaforma/",
+      "destination": "/blog/digital-manufacturing-le-tecnologie-driver-per-le-fabbriche-in-ununica-piattaforma/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/customer-care/knowledge-base-help-desk-come-funziona-con-zendesk-guide/",
+      "destination": "/blog/knowledge-base-help-desk-come-funziona-con-zendesk-guide/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/customer-care/tool-per-startup-con-zendesk-punti-alla-crescita-con-laiuto-di-veri-esperti/",
+      "destination": "/blog/tool-per-startup-con-zendesk-punti-alla-crescita-con-laiuto-di-veri-esperti/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/zendesk/umanizzare-un-chatbot-vantaggi-e-svantaggi-della-chatbot-personality/",
+      "destination": "/blog/umanizzare-un-chatbot-vantaggi-e-svantaggi-della-chatbot-personality/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/zendesk/sales-performance-management-migliorare-le-vendite-con-zendesk-sell/",
+      "destination": "/blog/sales-performance-management-migliorare-le-vendite-con-zendesk-sell/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/customer-care/digital-customer-services-le-5-tendenze-della-cx-nel-2023/",
+      "destination": "/blog/digital-customer-services-le-5-tendenze-della-cx-nel-2023/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/customer-experience/phygital-experience-un-nuovo-modo-per-migliorare-lesperienza-del-cliente/",
+      "destination": "/blog/phygital-experience-un-nuovo-modo-per-migliorare-lesperienza-del-cliente/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/customer-experience/customer-service-machine-learning-i-trend-assistenza-da-seguire/",
+      "destination": "/blog/customer-service-machine-learning-i-trend-assistenza-da-seguire/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/zendesk/i-migliori-programmi-di-messaggistica-istantanea-integrabili-con-zendesk/",
+      "destination": "/blog/i-migliori-programmi-di-messaggistica-istantanea-integrabili-con-zendesk/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/customer-experience/customer-experience-analytics-con-zendesk-explore-limportanza-della-reportistica-nellassistenza-clienti/",
+      "destination": "/blog/customer-experience-analytics-con-zendesk-explore-limportanza-della-reportistica-nellassistenza-clienti/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/customer-care/best-customer-service-il-2022-del-servizio-clienti/",
+      "destination": "/blog/best-customer-service-il-2022-del-servizio-clienti/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/zendesk/zendesk-suite-la-soluzione-completa-di-digital-customer-experience/",
+      "destination": "/blog/zendesk-suite-la-soluzione-completa-di-digital-customer-experience/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/customer-experience/trasforma-loperatore-contact-center-in-brand-ambassador-con-lemployer-advocacy/",
+      "destination": "/blog/trasforma-loperatore-contact-center-in-brand-ambassador-con-lemployer-advocacy/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/zendesk/siti-con-chatbot-il-62-dei-consumatori-li-preferisce-agli-agenti-helpdesk/",
+      "destination": "/blog/siti-con-chatbot-il-62-dei-consumatori-li-preferisce-agli-agenti-helpdesk/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/customer-experience/aziende-customer-centric-le-caratteristiche-chiave-dei-campioni-della-cx/",
+      "destination": "/blog/aziende-customer-centric-le-caratteristiche-chiave-dei-campioni-della-cx/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/customer-care/cloudsherpa-e-il-digital-customer-care/",
+      "destination": "/blog/cloudsherpa-e-il-digital-customer-care/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/scenari-digitali/digital-transformation-come-renderla-un-obiettivo-smart/",
+      "destination": "/blog/digital-transformation-come-renderla-un-obiettivo-smart/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/customer-care/limportanza-dellassistenza-clienti-il-customer-experience-webinar-cloudsherpa/",
+      "destination": "/blog/limportanza-dellassistenza-clienti-il-customer-experience-webinar-cloudsherpa/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/zendesk/come-scegliere-il-miglior-software-help-desk-per-la-tua-azienda/",
+      "destination": "/blog/come-scegliere-il-miglior-software-help-desk-per-la-tua-azienda/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/zendesk/zendesk-per-lhr-lhelp-desk-incentrato-sulle-persone/",
+      "destination": "/blog/zendesk-per-lhr-lhelp-desk-incentrato-sulle-persone/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/customer-experience/cx-accelerator-italia-levento-zendesk-dal-vivo/",
+      "destination": "/blog/cx-accelerator-italia-levento-zendesk-dal-vivo/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/customer-care/customer-lifetime-value-definizione-e-importanza-in-azienda/",
+      "destination": "/blog/customer-lifetime-value-definizione-e-importanza-in-azienda/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/customer-care/agente-help-desk-chi-e-e-perche-e-una-figura-chiave-della-transizione-digitale/",
+      "destination": "/blog/agente-help-desk-chi-e-e-perche-e-una-figura-chiave-della-transizione-digitale/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/zendesk/zendesk-support/zendesk-support-come-funziona-e-quali-vantaggi-offre-per-aziende-e-clienti/",
+      "destination": "/blog/zendesk-support-come-funziona-e-quali-vantaggi-offre-per-aziende-e-clienti/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/zendesk/in-che-modo-i-software-saas-migliorano-il-lavoro-nella-tua-azienda/",
+      "destination": "/blog/in-che-modo-i-software-saas-migliorano-il-lavoro-nella-tua-azienda/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/customer-care/aziende-customer-centric-ecco-come-migliorare-con-i-software-in-cloud/",
+      "destination": "/blog/aziende-customer-centric-ecco-come-migliorare-con-i-software-in-cloud/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/customer-experience/la-settimana-corta-e-lassistenza-clienti-vantaggi-o-svantaggi/",
+      "destination": "/blog/la-settimana-corta-e-lassistenza-clienti-vantaggi-o-svantaggi/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/customer-experience/data-analysis-e-customer-experience-come-interpretare-i-dati/",
+      "destination": "/blog/data-analysis-e-customer-experience-come-interpretare-i-dati/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/customer-experience/customer-churn-5-consigli-per-prevenire-la-perdita-di-clienti/",
+      "destination": "/blog/customer-churn-5-consigli-per-prevenire-la-perdita-di-clienti/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/marketing-omnicanale/capire-la-buyer-journey-per-ottimizzare-la-customer-experience-nel-b2b/",
+      "destination": "/blog/capire-la-buyer-journey-per-ottimizzare-la-customer-experience-nel-b2b/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/zendesk/zendesk-sell-come-vendere-di-piu-grazie-ai-dati/",
+      "destination": "/blog/zendesk-sell-come-vendere-di-piu-grazie-ai-dati/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/scenari-digitali/software-in-cloud-come-digitalizzare-lazienda-senza-spendere-un-capitale/",
+      "destination": "/blog/software-in-cloud-come-digitalizzare-lazienda-senza-spendere-un-capitale/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/customer-care/i-3-consigli-per-unassistenza-da-remoto-di-qualita-anche-in-vacanza/",
+      "destination": "/blog/i-3-consigli-per-unassistenza-da-remoto-di-qualita-anche-in-vacanza/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/customer-care/le-best-practices-per-un-omnichannel-customer-care/",
+      "destination": "/blog/le-best-practices-per-un-omnichannel-customer-care/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/zendesk/la-digital-transformation-secondo-cloudsherpa-help-desk-system-integrator-e-ticketing/",
+      "destination": "/blog/la-digital-transformation-secondo-cloudsherpa-help-desk-system-integrator-e-ticketing/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/customer-experience/come-dire-addio-a-unesperienza-del-cliente-frammentata-con-zendesk/",
+      "destination": "/blog/come-dire-addio-a-unesperienza-del-cliente-frammentata-con-zendesk/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/marketing-omnicanale/zendesk-support-lo-strumento-per-la-strategia-omnicanale-del-customer-care/",
+      "destination": "/blog/zendesk-support-lo-strumento-per-la-strategia-omnicanale-del-customer-care/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/customer-care/lassistenza-clienti-vale-piu-del-marketing-ecco-perche/",
+      "destination": "/blog/lassistenza-clienti-vale-piu-del-marketing-ecco-perche/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/zendesk/workflow-definizione-cose-e-come-funziona/",
+      "destination": "/blog/workflow-definizione-cose-e-come-funziona/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/zendesk/zendesk-social/zendesk-instagram-le-risorse-per-il-marketing-b2b-social/",
+      "destination": "/blog/zendesk-instagram-le-risorse-per-il-marketing-b2b-social/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/customer-care/sicurezza-online-e-privacy-perche-sono-importanti-nel-servizio-clienti/",
+      "destination": "/blog/sicurezza-online-e-privacy-perche-sono-importanti-nel-servizio-clienti/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/marketing-omnicanale/perche-e-importante-investire-in-un-customer-service-omnicanale/",
+      "destination": "/blog/perche-e-importante-investire-in-un-customer-service-omnicanale/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/customer-care/priorita-leader-gestione-clienti-2022/",
+      "destination": "/blog/priorita-leader-gestione-clienti-2022/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/zendesk/scegliere-azienda-zendesk-partner-italia/",
+      "destination": "/blog/scegliere-azienda-zendesk-partner-italia/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/system-integration/system-integration-management/",
+      "destination": "/blog/system-integration-management/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/zendesk/integrazione-zendesk-e-shopify/",
+      "destination": "/blog/integrazione-zendesk-e-shopify/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/zendesk/zendesk-support/sistemi-di-ticketing-a-confronto-chi-vincera/",
+      "destination": "/blog/sistemi-di-ticketing-a-confronto-chi-vincera/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/zendesk/zendesk-chat/zendesk-chat-cose-come-funziona-che-benefici-offre/",
+      "destination": "/blog/zendesk-chat-cose-come-funziona-che-benefici-offre/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/marketing-omnicanale/clouding-cose-come-funziona-perche-sceglierlo-per-la-tua-azienda/",
+      "destination": "/blog/clouding-cose-come-funziona-perche-sceglierlo-per-la-tua-azienda/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/customer-care/costruisci-il-tuo-answer-bot-con-zendesk-flow-builder/",
+      "destination": "/blog/costruisci-il-tuo-answer-bot-con-zendesk-flow-builder/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/customer-care/zendesk-light-agents-per-un-customer-care-intelligente/",
+      "destination": "/blog/zendesk-light-agents-per-un-customer-care-intelligente/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/marketing-omnicanale/sfrutta-le-funzionalita-delle-api-aperte-con-zendesk-support/",
+      "destination": "/blog/sfrutta-le-funzionalita-delle-api-aperte-con-zendesk-support/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/customer-experience/saas-solutions-zendesk-e-il-case-study-vimeo/",
+      "destination": "/blog/saas-solutions-zendesk-e-il-case-study-vimeo/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/courses/zendesk-in-italiano-e-possibile-con-cloudsherpa/",
+      "destination": "/blog/zendesk-in-italiano-e-possibile-con-cloudsherpa/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/customer-experience/software-ticketing-attese-dimezzate-clienti-soddisfatti/",
+      "destination": "/blog/software-ticketing-attese-dimezzate-clienti-soddisfatti/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/marketing-omnicanale/il-crm-nella-strategia-di-marketing-omnicanale/",
+      "destination": "/blog/il-crm-nella-strategia-di-marketing-omnicanale/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/customer-care/il-tuo-business-e-in-crescita-non-cambiare-servizio-assistenza-clienti/",
+      "destination": "/blog/il-tuo-business-e-in-crescita-non-cambiare-servizio-assistenza-clienti/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/customer-experience/chatbot-o-assistenza-diretta-con-zendesk-chat-non-devi-scegliere/",
+      "destination": "/blog/chatbot-o-assistenza-diretta-con-zendesk-chat-non-devi-scegliere/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/alfabeto-zendesk/la-lettera-f-dellalfabeto-zendesk/",
+      "destination": "/blog/la-lettera-f-dellalfabeto-zendesk/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/customer-experience/zendesk-gather-il-community-forum-per-relazioni-costruttive-con-i-clienti/",
+      "destination": "/blog/zendesk-gather-il-community-forum-per-relazioni-costruttive-con-i-clienti/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/customer-experience/perfezionare-esperienza-clienti-con-la-reportistica/",
+      "destination": "/blog/perfezionare-esperienza-clienti-con-la-reportistica/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/customer-care/zendesk-talk-il-supporto-telefonico-nellera-dellomnicanalita/",
+      "destination": "/blog/zendesk-talk-il-supporto-telefonico-nellera-dellomnicanalita/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/customer-care/zendesk-chat-incontra-il-consumer-behavior/",
+      "destination": "/blog/zendesk-chat-incontra-il-consumer-behavior/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/zendesk/zendesk-support-il-servizio-per-agenti-e-clienti-soddisfatti/",
+      "destination": "/blog/zendesk-support-il-servizio-per-agenti-e-clienti-soddisfatti/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/zendesk/zendesk-sell-per-un-servizio-vendite-supremo/",
+      "destination": "/blog/zendesk-sell-per-un-servizio-vendite-supremo/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/zendesk/le-ultime-novita-zendesk-nuove-integrazioni-in-arrivo/",
+      "destination": "/blog/le-ultime-novita-zendesk-nuove-integrazioni-in-arrivo/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/marketing-omnicanale/omnicanale-vs-multicanale/",
+      "destination": "/blog/omnicanale-vs-multicanale/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/scenari-digitali/le-3-top-previsioni-di-marketing-per-il-2022/",
+      "destination": "/blog/le-3-top-previsioni-di-marketing-per-il-2022/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/zendesk/come-zendesk-semplifica-la-cx-per-i-team-it/",
+      "destination": "/blog/come-zendesk-semplifica-la-cx-per-i-team-it/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/scenari-digitali/i-top-3-tech-trends-del-2022/",
+      "destination": "/blog/i-top-3-tech-trends-del-2022/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/marketing-omnicanale/i-roi-dellutilizzo-del-supporto-omnicanale-riassunto-in-5-punti/",
+      "destination": "/blog/i-roi-dellutilizzo-del-supporto-omnicanale-riassunto-in-5-punti/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/scenari-digitali/le-3-tematiche-che-impatteranno-i-trend-del-2022/",
+      "destination": "/blog/le-3-tematiche-che-impatteranno-i-trend-del-2022/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/scenari-digitali/i-3-livelli-di-servizio-su-cui-sviluppare-la-customer-experience/",
+      "destination": "/blog/i-3-livelli-di-servizio-su-cui-sviluppare-la-customer-experience/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/scenari-digitali/come-le-pmi-competono-con-le-grandi-aziende/",
+      "destination": "/blog/come-le-pmi-competono-con-le-grandi-aziende/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/customer-care/zendesk-suite-per-unesperienza-di-assistenza-completa/",
+      "destination": "/blog/zendesk-suite-per-unesperienza-di-assistenza-completa/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/customer-care/3-modi-per-migliorare-il-servizio-clienti-con-zendesk/",
+      "destination": "/blog/3-modi-per-migliorare-il-servizio-clienti-con-zendesk/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/alfabeto-zendesk/lalfabeto-di-zendesk-dalla-a-alla-z-e/",
+      "destination": "/blog/lalfabeto-di-zendesk-dalla-a-alla-z-e/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/customer-experience/quanto-sei-agile-essere-leader-nella-cx/",
+      "destination": "/blog/quanto-sei-agile-essere-leader-nella-cx/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/marketing-omnicanale/i-fondamenti-della-lead-nurturing-journey-guida-le-azioni-dei-tuoi-lead/",
+      "destination": "/blog/i-fondamenti-della-lead-nurturing-journey-guida-le-azioni-dei-tuoi-lead/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/customer-experience/credito-di-imposta/",
+      "destination": "/blog/credito-di-imposta/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/alfabeto-zendesk/lalfabeto-di-zendesk-dalla-a-alla-z-d/",
+      "destination": "/blog/lalfabeto-di-zendesk-dalla-a-alla-z-d/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/scenari-digitali/dal-caos-allordine-la-maturita-digitale-delle-pmi/",
+      "destination": "/blog/dal-caos-allordine-la-maturita-digitale-delle-pmi/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/customer-care/lalfabeto-di-zendesk-dalla-a-alla-z-c/",
+      "destination": "/blog/lalfabeto-di-zendesk-dalla-a-alla-z-c/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/customer-care/ridefinire-la-cx-per-una-nuova-era/",
+      "destination": "/blog/ridefinire-la-cx-per-una-nuova-era/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/customer-care/lalfabeto-di-zendesk-dalla-a-alla-z-b/",
+      "destination": "/blog/lalfabeto-di-zendesk-dalla-a-alla-z-b/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/customer-care/lalfabeto-di-zendesk-dalla-a-alla-z%e2%80%8b/",
+      "destination": "/blog/lalfabeto-di-zendesk-dalla-a-alla-z%e2%80%8b/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/customer-care/associazione-luca-coscioni/",
+      "destination": "/blog/associazione-luca-coscioni/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/customer-care/customercare-genzvsmillenials/",
+      "destination": "/blog/customercare-genzvsmillenials/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/customer-care/la-cx-alle-luci-della-ribalta-nuovi-trends-del-2021/",
+      "destination": "/blog/la-cx-alle-luci-della-ribalta-nuovi-trends-del-2021/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/customer-care/elementor-481/",
+      "destination": "/blog/elementor-481/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/zendesk/zendesk-sunshine/",
+      "destination": "/blog/zendesk-sunshine/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/zendesk/zendesk-chat/zendesk-chat/",
+      "destination": "/blog/zendesk-chat/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/zendesk/sales-suite/",
+      "destination": "/blog/sales-suite/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/zendesk/zendesk-guide-il-software-di-help-desk/",
+      "destination": "/blog/zendesk-guide-il-software-di-help-desk/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/customer-experience/elementor-421/",
+      "destination": "/blog/elementor-421/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/marketing-omnicanale/lassistenza-clienti-in-ottica-omincanale-zendesk-support-suite/",
+      "destination": "/blog/lassistenza-clienti-in-ottica-omincanale-zendesk-support-suite/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/customer-care/limportanza-della-customer-care/",
+      "destination": "/blog/limportanza-della-customer-care/",
+      "statusCode": 301
+    },
+    {
+      "source": "/argomenti/zendesk/blog-post-2/",
+      "destination": "/blog/blog-post-2/",
+      "statusCode": 301
+    }
+  ]
+}

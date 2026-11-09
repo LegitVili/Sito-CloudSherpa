@@ -1,0 +1,201 @@
+---
+import { site, cta } from '../data/site';
+import { services } from '../data/services';
+import { solutions } from '../data/solutions';
+import Icon from './Icon.astro';
+
+const c = site.company;
+const year = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <svg class="ridge" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true">
+    <path
+      d="M0 120V84L70 50 116 72 200 14 262 58 316 32 408 84 474 14 532 54 572 36 668 96 742 48 794 74 882 8 952 58 996 38 1078 84 1138 46 1214 90 1268 60 1340 96 1392 62 1440 88V120Z"
+      fill="currentColor"></path>
+  </svg>
+  <div class="inner">
+    <div class="wrap top">
+      <div class="about">
+        <p class="wordmark"><span>CLOUD</span>SHERPA</p>
+        <p>
+          Partner Zendesk. Portiamo ordine nel customer service con Zendesk, agenti AI e integrazioni su misura.
+        </p>
+        <ul class="contacts">
+          {
+            c.address && (
+              <li>
+                <Icon name="pin" size={18} />
+                <span>
+                  {c.address}, {c.city}
+                </span>
+              </li>
+            )
+          }
+          {
+            c.phone && (
+              <li>
+                <Icon name="phone" size={18} />
+                <a href={`tel:${c.phone.replace(/\s/g, '')}`}>{c.phone}</a>
+              </li>
+            )
+          }
+          {
+            c.email && (
+              <li>
+                <Icon name="mail" size={18} />
+                <a href={`mailto:${c.email}`}>{c.email}</a>
+              </li>
+            )
+          }
+        </ul>
+      </div>
+
+      <nav aria-label="Servizi">
+        <h2>Servizi</h2>
+        <ul>
+          {services.map((s) => <li><a href={`/servizi/${s.slug}/`}>{s.nav}</a></li>)}
+        </ul>
+      </nav>
+
+      <nav aria-label="Soluzioni">
+        <h2>Soluzioni</h2>
+        <ul>
+          {solutions.map((s) => <li><a href={`/soluzioni/${s.slug}/`}>{s.nav}</a></li>)}
+          <li><a href="/casi-studio/">Casi studio</a></li>
+        </ul>
+      </nav>
+
+      <nav aria-label="Azienda">
+        <h2>Azienda</h2>
+        <ul>
+          <li><a href="/chi-siamo/">Chi siamo</a></li>
+          <li><a href="/come-operiamo/">Come operiamo</a></li>
+          <li><a href="/blog/">Blog</a></li>
+          <li><a href="/contatti/">Contatti</a></li>
+          <li><a href={cta.primary.href}>Audit gratuito</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="wrap bottom">
+      <p>
+        {`© ${year} ${c.legalName || site.name}${c.vat ? ` · P.IVA ${c.vat}` : ''}`}
+      </p>
+      <ul>
+        <li><a href="/privacy/">Privacy</a></li>
+        <li><a href="/cookie/">Cookie</a></li>
+        {c.linkedin && <li><a href={c.linkedin} rel="noopener">LinkedIn</a></li>}
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    --ridge: clamp(40px, 7vw, 110px);
+    --floor: #0e1b23;
+    color: var(--floor);
+    position: relative;
+    /* la cresta si sovrappone all'ultima sezione, qualunque sia il suo colore */
+    margin-top: calc(var(--ridge) * -1);
+  }
+  .ridge {
+    display: block;
+    width: 100%;
+    height: var(--ridge);
+  }
+  .inner {
+    background: var(--floor);
+    color: #b9c7cf;
+    margin-top: -1px;
+    padding-top: clamp(2rem, 4vw, 3.5rem);
+    font-size: 0.98rem;
+  }
+  .top {
+    display: grid;
+    grid-template-columns: 1.6fr repeat(3, 1fr);
+    gap: 2.5rem;
+    padding-bottom: 3rem;
+  }
+  .wordmark {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 1.35rem;
+    letter-spacing: 0.02em;
+    color: #fff;
+    margin-bottom: 0.8rem;
+  }
+  .wordmark span {
+    color: #e3566d;
+  }
+  .about p {
+    max-width: 24rem;
+  }
+  h2 {
+    font-family: var(--font-body);
+    font-size: 0.82rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #8fa3ae;
+    margin-bottom: 1rem;
+    font-weight: 650;
+  }
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.55rem;
+  }
+  a {
+    color: #e3eaee;
+    text-decoration: none;
+  }
+  a:hover {
+    color: #fff;
+    text-decoration: underline;
+  }
+  .contacts {
+    margin-top: 1.25rem;
+  }
+  .contacts li {
+    display: flex;
+    gap: 0.6rem;
+    align-items: flex-start;
+  }
+  .contacts :global(svg) {
+    flex: none;
+    margin-top: 0.25em;
+    color: #8fa3ae;
+  }
+  .bottom {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-block: 1.5rem;
+    border-top: 1px solid rgb(255 255 255 / 12%);
+    font-size: 0.9rem;
+  }
+  .bottom p {
+    margin: 0;
+  }
+  .bottom ul {
+    display: flex;
+    gap: 1.5rem;
+  }
+  @media (max-width: 56rem) {
+    .top {
+      grid-template-columns: 1fr 1fr;
+    }
+    .about {
+      grid-column: 1 / -1;
+    }
+  }
+  @media (max-width: 30rem) {
+    .top {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
